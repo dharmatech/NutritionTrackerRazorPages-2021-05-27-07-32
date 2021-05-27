@@ -35,10 +35,17 @@ namespace NutritionTrackerRazorPages.Pages.FoodCategories
                 return Page();
             }
 
-            _context.FoodCategory.Add(FoodCategory);
+            _context.FoodCategories.Add(FoodCategory);
             await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");
         }
     }
 }
+
+
+
+
+
+
+

@@ -30,14 +30,14 @@ namespace NutritionTrackerRazorPages.Pages.ComplexFoodRecords
                 return NotFound();
             }
 
-            ComplexFoodRecord = await _context.ComplexFoodRecord
+            ComplexFoodRecord = await _context.ComplexFoodRecords
                 .Include(c => c.ComplexFood).FirstOrDefaultAsync(m => m.Id == id);
 
             if (ComplexFoodRecord == null)
             {
                 return NotFound();
             }
-           ViewData["ComplexFoodId"] = new SelectList(_context.ComplexFood, "Id", "Id");
+           ViewData["ComplexFoodId"] = new SelectList(_context.ComplexFoods, "Id", "Id");
             return Page();
         }
 
@@ -73,7 +73,14 @@ namespace NutritionTrackerRazorPages.Pages.ComplexFoodRecords
 
         private bool ComplexFoodRecordExists(int id)
         {
-            return _context.ComplexFoodRecord.Any(e => e.Id == id);
+            return _context.ComplexFoodRecords.Any(e => e.Id == id);
         }
     }
 }
+
+
+
+
+
+
+

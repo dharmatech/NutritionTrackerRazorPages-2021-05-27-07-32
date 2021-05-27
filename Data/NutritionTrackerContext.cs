@@ -14,16 +14,22 @@ namespace NutritionTrackerRazorPages.Data
         {
         }
 
-        public DbSet<NutritionTrackerRazorPages.Models.FoodCategory> FoodCategory { get; set; }
+        public DbSet<FoodCategory>         FoodCategories        { get; set; }
+        public DbSet<SimpleFood>           SimpleFoods           { get; set; }
+        public DbSet<SimpleFoodRecord>     SimpleFoodRecords     { get; set; }
+        public DbSet<ComplexFood>          ComplexFoods          { get; set; }
+        public DbSet<ComplexFoodComponent> ComplexFoodComponents { get; set; }
+        public DbSet<ComplexFoodRecord>    ComplexFoodRecords    { get; set; }
 
-        public DbSet<NutritionTrackerRazorPages.Models.SimpleFood> SimpleFood { get; set; }
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<FoodCategory>()        .ToTable(nameof(FoodCategory));
+            modelBuilder.Entity<SimpleFood>()          .ToTable(nameof(SimpleFood));
+            modelBuilder.Entity<SimpleFoodRecord>()    .ToTable(nameof(SimpleFoodRecord));
+            modelBuilder.Entity<ComplexFood>()         .ToTable(nameof(ComplexFood));
+            modelBuilder.Entity<ComplexFoodComponent>().ToTable(nameof(ComplexFoodComponent));
+            modelBuilder.Entity<ComplexFoodRecord>()   .ToTable(nameof(ComplexFoodRecord));
+        }
 
-        public DbSet<NutritionTrackerRazorPages.Models.SimpleFoodRecord> SimpleFoodRecord { get; set; }
-
-        public DbSet<NutritionTrackerRazorPages.Models.ComplexFood> ComplexFood { get; set; }
-
-        public DbSet<NutritionTrackerRazorPages.Models.ComplexFoodComponent> ComplexFoodComponent { get; set; }
-
-        public DbSet<NutritionTrackerRazorPages.Models.ComplexFoodRecord> ComplexFoodRecord { get; set; }
     }
 }

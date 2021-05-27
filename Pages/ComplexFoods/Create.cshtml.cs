@@ -35,10 +35,17 @@ namespace NutritionTrackerRazorPages.Pages.ComplexFoods
                 return Page();
             }
 
-            _context.ComplexFood.Add(ComplexFood);
+            _context.ComplexFoods.Add(ComplexFood);
             await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");
         }
     }
 }
+
+
+
+
+
+
+

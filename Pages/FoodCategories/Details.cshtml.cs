@@ -28,7 +28,7 @@ namespace NutritionTrackerRazorPages.Pages.FoodCategories
                 return NotFound();
             }
 
-            FoodCategory = await _context.FoodCategory.FirstOrDefaultAsync(m => m.Id == id);
+            FoodCategory = await _context.FoodCategories.FirstOrDefaultAsync(m => m.Id == id);
 
             if (FoodCategory == null)
             {
@@ -38,3 +38,10 @@ namespace NutritionTrackerRazorPages.Pages.FoodCategories
         }
     }
 }
+
+
+
+
+
+
+

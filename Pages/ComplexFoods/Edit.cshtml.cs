@@ -30,7 +30,7 @@ namespace NutritionTrackerRazorPages.Pages.ComplexFoods
                 return NotFound();
             }
 
-            ComplexFood = await _context.ComplexFood.FirstOrDefaultAsync(m => m.Id == id);
+            ComplexFood = await _context.ComplexFoods.FirstOrDefaultAsync(m => m.Id == id);
 
             if (ComplexFood == null)
             {
@@ -71,7 +71,14 @@ namespace NutritionTrackerRazorPages.Pages.ComplexFoods
 
         private bool ComplexFoodExists(int id)
         {
-            return _context.ComplexFood.Any(e => e.Id == id);
+            return _context.ComplexFoods.Any(e => e.Id == id);
         }
     }
 }
+
+
+
+
+
+
+

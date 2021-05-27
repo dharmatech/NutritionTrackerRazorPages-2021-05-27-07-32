@@ -21,8 +21,8 @@ namespace NutritionTrackerRazorPages.Pages.ComplexFoodComponents
 
         public IActionResult OnGet()
         {
-        ViewData["ComplexFoodId"] = new SelectList(_context.ComplexFood, "Id", "Id");
-        ViewData["SimpleFoodId"] = new SelectList(_context.SimpleFood, "Id", "Id");
+        ViewData["ComplexFoodId"] = new SelectList(_context.ComplexFoods, "Id", "Id");
+        ViewData["SimpleFoodId"] = new SelectList(_context.SimpleFoods, "Id", "Id");
             return Page();
         }
 
@@ -37,10 +37,17 @@ namespace NutritionTrackerRazorPages.Pages.ComplexFoodComponents
                 return Page();
             }
 
-            _context.ComplexFoodComponent.Add(ComplexFoodComponent);
+            _context.ComplexFoodComponents.Add(ComplexFoodComponent);
             await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");
         }
     }
 }
+
+
+
+
+
+
+

@@ -29,7 +29,7 @@ namespace NutritionTrackerRazorPages.Pages.SimpleFoodRecords
                 return NotFound();
             }
 
-            SimpleFoodRecord = await _context.SimpleFoodRecord
+            SimpleFoodRecord = await _context.SimpleFoodRecords
                 .Include(s => s.SimpleFood).FirstOrDefaultAsync(m => m.Id == id);
 
             if (SimpleFoodRecord == null)
@@ -46,11 +46,11 @@ namespace NutritionTrackerRazorPages.Pages.SimpleFoodRecords
                 return NotFound();
             }
 
-            SimpleFoodRecord = await _context.SimpleFoodRecord.FindAsync(id);
+            SimpleFoodRecord = await _context.SimpleFoodRecords.FindAsync(id);
 
             if (SimpleFoodRecord != null)
             {
-                _context.SimpleFoodRecord.Remove(SimpleFoodRecord);
+                _context.SimpleFoodRecords.Remove(SimpleFoodRecord);
                 await _context.SaveChangesAsync();
             }
 
@@ -58,3 +58,10 @@ namespace NutritionTrackerRazorPages.Pages.SimpleFoodRecords
         }
     }
 }
+
+
+
+
+
+
+

@@ -23,7 +23,14 @@ namespace NutritionTrackerRazorPages.Pages.ComplexFoods
 
         public async Task OnGetAsync()
         {
-            ComplexFood = await _context.ComplexFood.ToListAsync();
+            ComplexFood = await _context.ComplexFoods.ToListAsync();
         }
     }
 }
+
+
+
+
+
+
+

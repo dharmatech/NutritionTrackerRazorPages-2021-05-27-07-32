@@ -28,7 +28,7 @@ namespace NutritionTrackerRazorPages.Pages.ComplexFoods
                 return NotFound();
             }
 
-            ComplexFood = await _context.ComplexFood.FirstOrDefaultAsync(m => m.Id == id);
+            ComplexFood = await _context.ComplexFoods.FirstOrDefaultAsync(m => m.Id == id);
 
             if (ComplexFood == null)
             {
@@ -38,3 +38,10 @@ namespace NutritionTrackerRazorPages.Pages.ComplexFoods
         }
     }
 }
+
+
+
+
+
+
+

@@ -23,7 +23,14 @@ namespace NutritionTrackerRazorPages.Pages.FoodCategories
 
         public async Task OnGetAsync()
         {
-            FoodCategory = await _context.FoodCategory.ToListAsync();
+            FoodCategory = await _context.FoodCategories.ToListAsync();
         }
     }
 }
+
+
+
+
+
+
+

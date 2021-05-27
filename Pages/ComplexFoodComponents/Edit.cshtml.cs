@@ -30,7 +30,7 @@ namespace NutritionTrackerRazorPages.Pages.ComplexFoodComponents
                 return NotFound();
             }
 
-            ComplexFoodComponent = await _context.ComplexFoodComponent
+            ComplexFoodComponent = await _context.ComplexFoodComponents
                 .Include(c => c.ComplexFood)
                 .Include(c => c.SimpleFood).FirstOrDefaultAsync(m => m.Id == id);
 
@@ -38,8 +38,8 @@ namespace NutritionTrackerRazorPages.Pages.ComplexFoodComponents
             {
                 return NotFound();
             }
-           ViewData["ComplexFoodId"] = new SelectList(_context.ComplexFood, "Id", "Id");
-           ViewData["SimpleFoodId"] = new SelectList(_context.SimpleFood, "Id", "Id");
+           ViewData["ComplexFoodId"] = new SelectList(_context.ComplexFoods, "Id", "Id");
+           ViewData["SimpleFoodId"] = new SelectList(_context.SimpleFoods, "Id", "Id");
             return Page();
         }
 
@@ -75,7 +75,14 @@ namespace NutritionTrackerRazorPages.Pages.ComplexFoodComponents
 
         private bool ComplexFoodComponentExists(int id)
         {
-            return _context.ComplexFoodComponent.Any(e => e.Id == id);
+            return _context.ComplexFoodComponents.Any(e => e.Id == id);
         }
     }
 }
+
+
+
+
+
+
+

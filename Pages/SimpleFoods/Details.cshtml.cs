@@ -28,7 +28,7 @@ namespace NutritionTrackerRazorPages.Pages.SimpleFoods
                 return NotFound();
             }
 
-            SimpleFood = await _context.SimpleFood
+            SimpleFood = await _context.SimpleFoods
                 .Include(s => s.FoodCategory).FirstOrDefaultAsync(m => m.Id == id);
 
             if (SimpleFood == null)
@@ -39,3 +39,11 @@ namespace NutritionTrackerRazorPages.Pages.SimpleFoods
         }
     }
 }
+
+
+
+
+
+
+
+

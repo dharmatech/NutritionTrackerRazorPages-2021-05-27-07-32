@@ -30,7 +30,7 @@ namespace NutritionTrackerRazorPages.Pages.FoodCategories
                 return NotFound();
             }
 
-            FoodCategory = await _context.FoodCategory.FirstOrDefaultAsync(m => m.Id == id);
+            FoodCategory = await _context.FoodCategories.FirstOrDefaultAsync(m => m.Id == id);
 
             if (FoodCategory == null)
             {
@@ -71,7 +71,14 @@ namespace NutritionTrackerRazorPages.Pages.FoodCategories
 
         private bool FoodCategoryExists(int id)
         {
-            return _context.FoodCategory.Any(e => e.Id == id);
+            return _context.FoodCategories.Any(e => e.Id == id);
         }
     }
 }
+
+
+
+
+
+
+

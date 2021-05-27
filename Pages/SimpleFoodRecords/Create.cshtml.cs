@@ -21,7 +21,7 @@ namespace NutritionTrackerRazorPages.Pages.SimpleFoodRecords
 
         public IActionResult OnGet()
         {
-        ViewData["SimpleFoodId"] = new SelectList(_context.SimpleFood, "Id", "Id");
+        ViewData["SimpleFoodId"] = new SelectList(_context.SimpleFoods, "Id", "Id");
             return Page();
         }
 
@@ -36,10 +36,17 @@ namespace NutritionTrackerRazorPages.Pages.SimpleFoodRecords
                 return Page();
             }
 
-            _context.SimpleFoodRecord.Add(SimpleFoodRecord);
+            _context.SimpleFoodRecords.Add(SimpleFoodRecord);
             await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");
         }
     }
 }
+
+
+
+
+
+
+
