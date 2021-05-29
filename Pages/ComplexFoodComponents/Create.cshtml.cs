@@ -21,8 +21,8 @@ namespace NutritionTrackerRazorPages.Pages.ComplexFoodComponents
 
         public IActionResult OnGet()
         {
-        ViewData["ComplexFoodId"] = new SelectList(_context.ComplexFoods, "Id", "Id");
-        ViewData["SimpleFoodId"] = new SelectList(_context.SimpleFoods, "Id", "Id");
+        ViewData["ComplexFoodId"] = new SelectList(_context.ComplexFoods, "Id", "Name");
+        ViewData["SimpleFoodId"] = new SelectList(_context.SimpleFoods, "Id", "Name");
             return Page();
         }
 

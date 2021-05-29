@@ -29,10 +29,10 @@
 @foreach (var item in Model.ComplexFoodComponent) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.ComplexFood.Id)
+                @Html.DisplayFor(modelItem => item.ComplexFood.Name)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.SimpleFood.Id)
+                @Html.DisplayFor(modelItem => item.SimpleFood.Name)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Amount)
@@ -46,3 +46,5 @@
 }
     </tbody>
 </table>
+
+

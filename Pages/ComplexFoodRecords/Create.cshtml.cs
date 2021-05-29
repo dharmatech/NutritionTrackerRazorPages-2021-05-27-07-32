@@ -21,7 +21,7 @@ namespace NutritionTrackerRazorPages.Pages.ComplexFoodRecords
 
         public IActionResult OnGet()
         {
-        ViewData["ComplexFoodId"] = new SelectList(_context.ComplexFoods, "Id", "Id");
+        ViewData["ComplexFoodId"] = new SelectList(_context.ComplexFoods, "Id", "Name");
             return Page();
         }
 
@@ -43,6 +43,7 @@ namespace NutritionTrackerRazorPages.Pages.ComplexFoodRecords
         }
     }
 }
+
 
 
 
