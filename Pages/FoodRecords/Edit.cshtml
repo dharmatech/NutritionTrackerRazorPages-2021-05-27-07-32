@@ -25,6 +25,16 @@
                 <span asp-validation-for="FoodRecord.Time" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <label asp-for="FoodRecord.FoodId" class="control-label"></label>
+                <select asp-for="FoodRecord.FoodId" class="form-control" asp-items="ViewBag.FoodId"></select>
+                <span asp-validation-for="FoodRecord.FoodId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FoodRecord.Amount" class="control-label"></label>
+                <input asp-for="FoodRecord.Amount" class="form-control" />
+                <span asp-validation-for="FoodRecord.Amount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />
             </div>
         </form>

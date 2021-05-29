@@ -31,13 +31,13 @@ namespace NutritionTrackerRazorPages.Pages.SimpleFoodRecords
             }
 
             SimpleFoodRecord = await _context.SimpleFoodRecords
-                .Include(s => s.SimpleFood).FirstOrDefaultAsync(m => m.Id == id);
+                .Include(s => s.Food).FirstOrDefaultAsync(m => m.Id == id);
 
             if (SimpleFoodRecord == null)
             {
                 return NotFound();
             }
-           ViewData["SimpleFoodId"] = new SelectList(_context.SimpleFoods, "Id", "Id");
+           ViewData["FoodId"] = new SelectList(_context.Foods, "Id", "Discriminator");
             return Page();
         }
 
@@ -77,10 +77,3 @@ namespace NutritionTrackerRazorPages.Pages.SimpleFoodRecords
         }
     }
 }
-
-
-
-
-
-
-

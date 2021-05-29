@@ -30,7 +30,7 @@ namespace NutritionTrackerRazorPages.Pages.SimpleFoodRecords
             }
 
             SimpleFoodRecord = await _context.SimpleFoodRecords
-                .Include(s => s.SimpleFood).FirstOrDefaultAsync(m => m.Id == id);
+                .Include(s => s.Food).FirstOrDefaultAsync(m => m.Id == id);
 
             if (SimpleFoodRecord == null)
             {
@@ -58,10 +58,3 @@ namespace NutritionTrackerRazorPages.Pages.SimpleFoodRecords
         }
     }
 }
-
-
-
-
-
-
-

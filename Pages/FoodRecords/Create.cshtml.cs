@@ -21,6 +21,10 @@ namespace NutritionTrackerRazorPages.Pages.FoodRecords
 
         public IActionResult OnGet()
         {
+            //ViewData["FoodId"] = new SelectList(_context.Foods, "Id", "Discriminator");
+
+            ViewData["FoodId"] = new SelectList(_context.Foods, "Id", "Name");
+
             return Page();
         }
 
@@ -34,7 +38,12 @@ namespace NutritionTrackerRazorPages.Pages.FoodRecords
             {
                 return Page();
             }
+            
+            //if (FoodRecord.Food.Discriminator == "SimpleFood")
+            //{
 
+            //}
+            
             _context.FoodRecords.Add(FoodRecord);
             await _context.SaveChangesAsync();
 

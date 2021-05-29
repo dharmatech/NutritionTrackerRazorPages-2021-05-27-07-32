@@ -16,6 +16,7 @@ namespace NutritionTrackerRazorPages.Data
 
         public DbSet<FoodCategory>         FoodCategories        { get; set; }
 
+        public DbSet<Food>                 Foods                 { get; set; }
         public DbSet<FoodRecord>           FoodRecords           { get; set; }
 
         public DbSet<SimpleFood>           SimpleFoods           { get; set; }
@@ -31,9 +32,10 @@ namespace NutritionTrackerRazorPages.Data
 
             modelBuilder.Entity<FoodRecord>()           .ToTable(nameof(FoodRecord));
 
-            modelBuilder.Entity<SimpleFood>()          .ToTable(nameof(SimpleFood));
+            //modelBuilder.Entity<SimpleFood>()          .ToTable(nameof(SimpleFood));
             //modelBuilder.Entity<SimpleFoodRecord>()    .ToTable(nameof(SimpleFoodRecord));
-            modelBuilder.Entity<ComplexFood>()         .ToTable(nameof(ComplexFood));
+
+            //modelBuilder.Entity<ComplexFood>()         .ToTable(nameof(ComplexFood));
             modelBuilder.Entity<ComplexFoodComponent>().ToTable(nameof(ComplexFoodComponent));
             //modelBuilder.Entity<ComplexFoodRecord>()   .ToTable(nameof(ComplexFoodRecord));
         }

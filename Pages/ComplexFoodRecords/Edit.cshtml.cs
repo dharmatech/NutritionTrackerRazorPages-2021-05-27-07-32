@@ -31,13 +31,13 @@ namespace NutritionTrackerRazorPages.Pages.ComplexFoodRecords
             }
 
             ComplexFoodRecord = await _context.ComplexFoodRecords
-                .Include(c => c.ComplexFood).FirstOrDefaultAsync(m => m.Id == id);
+                .Include(c => c.Food).FirstOrDefaultAsync(m => m.Id == id);
 
             if (ComplexFoodRecord == null)
             {
                 return NotFound();
             }
-           ViewData["ComplexFoodId"] = new SelectList(_context.ComplexFoods, "Id", "Id");
+           ViewData["FoodId"] = new SelectList(_context.Foods, "Id", "Name");
             return Page();
         }
 
@@ -77,10 +77,3 @@ namespace NutritionTrackerRazorPages.Pages.ComplexFoodRecords
         }
     }
 }
-
-
-
-
-
-
-

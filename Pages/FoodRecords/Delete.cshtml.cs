@@ -29,7 +29,8 @@ namespace NutritionTrackerRazorPages.Pages.FoodRecords
                 return NotFound();
             }
 
-            FoodRecord = await _context.FoodRecords.FirstOrDefaultAsync(m => m.Id == id);
+            FoodRecord = await _context.FoodRecords
+                .Include(f => f.Food).FirstOrDefaultAsync(m => m.Id == id);
 
             if (FoodRecord == null)
             {

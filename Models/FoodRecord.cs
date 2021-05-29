@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -16,6 +17,14 @@ namespace NutritionTrackerRazorPages.Models
         [DataType(DataType.Time)]
         public DateTime Time { get; set; }
 
-        //public abstract decimal Calories { get; set; }
+        public int FoodId { get; set; }
+        public Food Food { get; set; } // navigation
+
+        public decimal Amount { get; set; }
+
+        [ValidateNever] public decimal Calories      => Amount / Food.ServingSize * Food.Calories;
+        [ValidateNever] public decimal Fat           => Amount / Food.ServingSize * Food.Fat;
+        [ValidateNever] public decimal Carbohydrates => Amount / Food.ServingSize * Food.Carbohydrates;
+        [ValidateNever] public decimal Protein       => Amount / Food.ServingSize * Food.Protein;
     }
 }

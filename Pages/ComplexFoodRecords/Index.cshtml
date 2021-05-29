@@ -20,16 +20,11 @@
                 @Html.DisplayNameFor(model => model.ComplexFoodRecord[0].Time)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ComplexFoodRecord[0].ComplexFood)
+                @Html.DisplayNameFor(model => model.ComplexFoodRecord[0].Food)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.ComplexFoodRecord[0].Amount)
             </th>
-
-            <th>
-                @Html.DisplayNameFor(model => model.ComplexFoodRecord[0].Calories)
-            </th>
-
             <th></th>
         </tr>
     </thead>
@@ -43,16 +38,11 @@
                 @Html.DisplayFor(modelItem => item.Time)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.ComplexFood.Name)
+                @Html.DisplayFor(modelItem => item.Food.Name)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Amount)
             </td>
-
-            <td>
-                @Html.DisplayFor(modelItem => item.Calories)
-            </td>
-
             <td>
                 <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
                 <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |

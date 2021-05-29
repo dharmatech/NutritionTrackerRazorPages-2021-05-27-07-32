@@ -51,14 +51,24 @@ namespace NutritionTrackerRazorPages.Data
             var apple   = context.SimpleFoods.Single(simpleFood => simpleFood.Name == "Apple (g)");
             var banana  = context.SimpleFoods.Single(simpleFood => simpleFood.Name == "Banana (g)");
 
-            context.SimpleFoodRecords.AddRange(
-                new SimpleFoodRecord() { Date = DateTime.Parse("2021-01-01"), Time = DateTime.Parse("12:00"), SimpleFood = beef80, Amount = 200 },
-                new SimpleFoodRecord() { Date = DateTime.Parse("2021-01-01"), Time = DateTime.Parse("12:00"), SimpleFood = basmati, Amount = 300 },
-                new SimpleFoodRecord() { Date = DateTime.Parse("2021-01-01"), Time = DateTime.Parse("12:00"), SimpleFood = avocado, Amount = 50 },
+            //context.SimpleFoodRecords.AddRange(
+            //    new SimpleFoodRecord() { Date = DateTime.Parse("2021-01-01"), Time = DateTime.Parse("12:00"), SimpleFood = beef80, Amount = 200 },
+            //    new SimpleFoodRecord() { Date = DateTime.Parse("2021-01-01"), Time = DateTime.Parse("12:00"), SimpleFood = basmati, Amount = 300 },
+            //    new SimpleFoodRecord() { Date = DateTime.Parse("2021-01-01"), Time = DateTime.Parse("12:00"), SimpleFood = avocado, Amount = 50 },
 
-                new SimpleFoodRecord() { Date = DateTime.Parse("2021-01-01"), Time = DateTime.Parse("18:00"), SimpleFood = lentils, Amount = 250 },
-                new SimpleFoodRecord() { Date = DateTime.Parse("2021-01-01"), Time = DateTime.Parse("18:00"), SimpleFood = onion, Amount = 150 },
-                new SimpleFoodRecord() { Date = DateTime.Parse("2021-01-01"), Time = DateTime.Parse("18:00"), SimpleFood = basmati, Amount = 350 }
+            //    new SimpleFoodRecord() { Date = DateTime.Parse("2021-01-01"), Time = DateTime.Parse("18:00"), SimpleFood = lentils, Amount = 250 },
+            //    new SimpleFoodRecord() { Date = DateTime.Parse("2021-01-01"), Time = DateTime.Parse("18:00"), SimpleFood = onion, Amount = 150 },
+            //    new SimpleFoodRecord() { Date = DateTime.Parse("2021-01-01"), Time = DateTime.Parse("18:00"), SimpleFood = basmati, Amount = 350 }
+
+            //    );
+
+            context.FoodRecords.AddRange(
+                new SimpleFoodRecord() { Date = DateTime.Parse("2021-01-01"), Time = DateTime.Parse("12:00"), Food = beef80, Amount = 200 },
+                new SimpleFoodRecord() { Date = DateTime.Parse("2021-01-01"), Time = DateTime.Parse("12:00"), Food = basmati, Amount = 300 },
+                new SimpleFoodRecord() { Date = DateTime.Parse("2021-01-01"), Time = DateTime.Parse("12:00"), Food = avocado, Amount = 50 },
+                new SimpleFoodRecord() { Date = DateTime.Parse("2021-01-01"), Time = DateTime.Parse("18:00"), Food = lentils, Amount = 250 },
+                new SimpleFoodRecord() { Date = DateTime.Parse("2021-01-01"), Time = DateTime.Parse("18:00"), Food = onion, Amount = 150 },
+                new SimpleFoodRecord() { Date = DateTime.Parse("2021-01-01"), Time = DateTime.Parse("18:00"), Food = basmati, Amount = 350 }
 
                 );
 
@@ -67,7 +77,7 @@ namespace NutritionTrackerRazorPages.Data
             var LimaYamOnion = new ComplexFood() 
             { 
                 Name = "LimaYamOnion", 
-                Amount = 3000,
+                ServingSize = 3000,
                 ComplexFoodComponents = new[] 
                 { 
                     new ComplexFoodComponent() { SimpleFood = lima,  Amount = 454 },
@@ -81,13 +91,18 @@ namespace NutritionTrackerRazorPages.Data
             context.ComplexFoods.AddRange(
                 LimaYamOnion
                 );
-                        
+
+            //context.ComplexFoodRecords.AddRange(
+            //    new ComplexFoodRecord() { Date = DateTime.Parse("2021-05-29"), Time = DateTime.Parse("12:00"), ComplexFood = LimaYamOnion, Amount = 300 },
+            //    new ComplexFoodRecord() { Date = DateTime.Parse("2021-05-29"), Time = DateTime.Parse("18:00"), ComplexFood = LimaYamOnion, Amount = 500 }
+            //    );
+
             context.ComplexFoodRecords.AddRange(
-                new ComplexFoodRecord() { Date = DateTime.Parse("2021-05-29"), Time = DateTime.Parse("12:00"), ComplexFood = LimaYamOnion, Amount = 300 },
-                new ComplexFoodRecord() { Date = DateTime.Parse("2021-05-29"), Time = DateTime.Parse("18:00"), ComplexFood = LimaYamOnion, Amount = 500 }
+                new ComplexFoodRecord() { Date = DateTime.Parse("2021-05-29"), Time = DateTime.Parse("12:00"), Food = LimaYamOnion, Amount = 300 },
+                new ComplexFoodRecord() { Date = DateTime.Parse("2021-05-29"), Time = DateTime.Parse("18:00"), Food = LimaYamOnion, Amount = 500 }
                 );
 
-            
+
 
             context.SaveChanges();            
         }

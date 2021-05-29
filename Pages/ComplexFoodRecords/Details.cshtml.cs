@@ -29,7 +29,7 @@ namespace NutritionTrackerRazorPages.Pages.ComplexFoodRecords
             }
 
             ComplexFoodRecord = await _context.ComplexFoodRecords
-                .Include(c => c.ComplexFood).FirstOrDefaultAsync(m => m.Id == id);
+                .Include(c => c.Food).FirstOrDefaultAsync(m => m.Id == id);
 
             if (ComplexFoodRecord == null)
             {
@@ -39,10 +39,3 @@ namespace NutritionTrackerRazorPages.Pages.ComplexFoodRecords
         }
     }
 }
-
-
-
-
-
-
-

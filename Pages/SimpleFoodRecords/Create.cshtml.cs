@@ -21,7 +21,7 @@ namespace NutritionTrackerRazorPages.Pages.SimpleFoodRecords
 
         public IActionResult OnGet()
         {
-        ViewData["SimpleFoodId"] = new SelectList(_context.SimpleFoods, "Id", "Id");
+        ViewData["FoodId"] = new SelectList(_context.Foods, "Id", "Discriminator");
             return Page();
         }
 
@@ -43,10 +43,3 @@ namespace NutritionTrackerRazorPages.Pages.SimpleFoodRecords
         }
     }
 }
-
-
-
-
-
-
-

@@ -5,19 +5,19 @@ using System.Threading.Tasks;
 
 namespace NutritionTrackerRazorPages.Models
 {
-    public class SimpleFood
+    public class SimpleFood : Food
     {
-        public int Id { get; set; }
-        public string Name { get; set; }
+        //public int Id { get; set; }
+        //public string Name { get; set; }
 
         public int FoodCategoryId { get; set; }
         public FoodCategory FoodCategory { get; set; } // navigation property
 
-        public decimal ServingSize { get; set; }
+        //public decimal ServingSize { get; set; }
 
-        public decimal Calories { get; set; }
-        public decimal Fat { get; set; }
-        public decimal Carbohydrates { get; set; }
-        public decimal Protein { get; set; }
+        public override decimal Calories { get; set; }
+        public override decimal Fat { get; set; }
+        public override decimal Carbohydrates { get; set; }
+        public override decimal Protein { get; set; }
     }
 }

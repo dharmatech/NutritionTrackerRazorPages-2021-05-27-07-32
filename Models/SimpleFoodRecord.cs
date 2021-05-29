@@ -17,15 +17,20 @@ namespace NutritionTrackerRazorPages.Models
         //[DataType(DataType.Time)]
         //public DateTime Time { get; set; }
 
-        public int SimpleFoodId { get; set; }
+        //public int SimpleFoodId { get; set; }
+        //public SimpleFood SimpleFood { get; set; } // navigation
 
-        public SimpleFood SimpleFood { get; set; } // navigation
-
-        public decimal Amount { get; set; }
+        //public decimal Amount { get; set; }
                         
-        [ValidateNever] public decimal Calories      => Amount / SimpleFood.ServingSize * SimpleFood.Calories;
-        [ValidateNever] public decimal Fat           => Amount / SimpleFood.ServingSize * SimpleFood.Fat;
-        [ValidateNever] public decimal Carbohydrates => Amount / SimpleFood.ServingSize * SimpleFood.Carbohydrates;
-        [ValidateNever] public decimal Protein       => Amount / SimpleFood.ServingSize * SimpleFood.Protein;
+        //[ValidateNever] 
+        //public override decimal Calories
+        //{
+        //    get { return Amount / SimpleFood.ServingSize * SimpleFood.Calories; }
+        //    set { }
+        //}
+            
+        //[ValidateNever] public decimal Fat           => Amount / SimpleFood.ServingSize * SimpleFood.Fat;
+        //[ValidateNever] public decimal Carbohydrates => Amount / SimpleFood.ServingSize * SimpleFood.Carbohydrates;
+        //[ValidateNever] public decimal Protein       => Amount / SimpleFood.ServingSize * SimpleFood.Protein;
     }
 }

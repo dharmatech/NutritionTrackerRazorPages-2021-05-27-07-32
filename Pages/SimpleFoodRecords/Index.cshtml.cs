@@ -24,14 +24,7 @@ namespace NutritionTrackerRazorPages.Pages.SimpleFoodRecords
         public async Task OnGetAsync()
         {
             SimpleFoodRecord = await _context.SimpleFoodRecords
-                .Include(s => s.SimpleFood).ToListAsync();
+                .Include(s => s.Food).ToListAsync();
         }
     }
 }
-
-
-
-
-
-
-
