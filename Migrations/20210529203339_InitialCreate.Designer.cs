@@ -9,7 +9,7 @@ using NutritionTrackerRazorPages.Data;
 namespace NutritionTrackerRazorPages.Migrations
 {
     [DbContext(typeof(NutritionTrackerContext))]
-    [Migration("20210527143816_InitialCreate")]
+    [Migration("20210529203339_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -59,31 +59,6 @@ namespace NutritionTrackerRazorPages.Migrations
                     b.ToTable("ComplexFoodComponent");
                 });
 
-            modelBuilder.Entity("NutritionTrackerRazorPages.Models.ComplexFoodRecord", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
-                    b.Property<decimal>("Amount")
-                        .HasColumnType("TEXT");
-
-                    b.Property<int>("ComplexFoodId")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<DateTime>("Date")
-                        .HasColumnType("TEXT");
-
-                    b.Property<DateTime>("Time")
-                        .HasColumnType("TEXT");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ComplexFoodId");
-
-                    b.ToTable("ComplexFoodRecord");
-                });
-
             modelBuilder.Entity("NutritionTrackerRazorPages.Models.FoodCategory", b =>
                 {
                     b.Property<int>("Id")
@@ -96,6 +71,29 @@ namespace NutritionTrackerRazorPages.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("FoodCategory");
+                });
+
+            modelBuilder.Entity("NutritionTrackerRazorPages.Models.FoodRecord", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Discriminator")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime>("Time")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("FoodRecord");
+
+                    b.HasDiscriminator<string>("Discriminator").HasValue("FoodRecord");
                 });
 
             modelBuilder.Entity("NutritionTrackerRazorPages.Models.SimpleFood", b =>
@@ -132,29 +130,35 @@ namespace NutritionTrackerRazorPages.Migrations
                     b.ToTable("SimpleFood");
                 });
 
-            modelBuilder.Entity("NutritionTrackerRazorPages.Models.SimpleFoodRecord", b =>
+            modelBuilder.Entity("NutritionTrackerRazorPages.Models.ComplexFoodRecord", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
+                    b.HasBaseType("NutritionTrackerRazorPages.Models.FoodRecord");
 
                     b.Property<decimal>("Amount")
                         .HasColumnType("TEXT");
 
-                    b.Property<DateTime>("Date")
-                        .HasColumnType("TEXT");
+                    b.Property<int>("ComplexFoodId")
+                        .HasColumnType("INTEGER");
+
+                    b.HasIndex("ComplexFoodId");
+
+                    b.HasDiscriminator().HasValue("ComplexFoodRecord");
+                });
+
+            modelBuilder.Entity("NutritionTrackerRazorPages.Models.SimpleFoodRecord", b =>
+                {
+                    b.HasBaseType("NutritionTrackerRazorPages.Models.FoodRecord");
+
+                    b.Property<decimal>("Amount")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("SimpleFoodRecord_Amount");
 
                     b.Property<int>("SimpleFoodId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<DateTime>("Time")
-                        .HasColumnType("TEXT");
-
-                    b.HasKey("Id");
-
                     b.HasIndex("SimpleFoodId");
 
-                    b.ToTable("SimpleFoodRecord");
+                    b.HasDiscriminator().HasValue("SimpleFoodRecord");
                 });
 
             modelBuilder.Entity("NutritionTrackerRazorPages.Models.ComplexFoodComponent", b =>
@@ -176,17 +180,6 @@ namespace NutritionTrackerRazorPages.Migrations
                     b.Navigation("SimpleFood");
                 });
 
-            modelBuilder.Entity("NutritionTrackerRazorPages.Models.ComplexFoodRecord", b =>
-                {
-                    b.HasOne("NutritionTrackerRazorPages.Models.ComplexFood", "ComplexFood")
-                        .WithMany()
-                        .HasForeignKey("ComplexFoodId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("ComplexFood");
-                });
-
             modelBuilder.Entity("NutritionTrackerRazorPages.Models.SimpleFood", b =>
                 {
                     b.HasOne("NutritionTrackerRazorPages.Models.FoodCategory", "FoodCategory")
@@ -196,6 +189,17 @@ namespace NutritionTrackerRazorPages.Migrations
                         .IsRequired();
 
                     b.Navigation("FoodCategory");
+                });
+
+            modelBuilder.Entity("NutritionTrackerRazorPages.Models.ComplexFoodRecord", b =>
+                {
+                    b.HasOne("NutritionTrackerRazorPages.Models.ComplexFood", "ComplexFood")
+                        .WithMany()
+                        .HasForeignKey("ComplexFoodId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("ComplexFood");
                 });
 
             modelBuilder.Entity("NutritionTrackerRazorPages.Models.SimpleFoodRecord", b =>

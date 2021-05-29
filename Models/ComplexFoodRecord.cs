@@ -7,15 +7,15 @@ using System.Threading.Tasks;
 
 namespace NutritionTrackerRazorPages.Models
 {
-    public class ComplexFoodRecord
+    public class ComplexFoodRecord : FoodRecord
     {
-        public int Id { get; set; }
+        //public int Id { get; set; }
 
-        [DataType(DataType.Date)]
-        public DateTime Date { get; set; }
+        //[DataType(DataType.Date)]
+        //public DateTime Date { get; set; }
 
-        [DataType(DataType.Time)]
-        public DateTime Time { get; set; }
+        //[DataType(DataType.Time)]
+        //public DateTime Time { get; set; }
 
         public int ComplexFoodId { get; set; }
         public ComplexFood ComplexFood { get; set; } // navigation
