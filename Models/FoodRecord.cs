@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace NutritionTrackerRazorPages.Models
 {
-    public abstract class FoodRecord
+    public class FoodRecord
     {
         public int Id { get; set; }
 

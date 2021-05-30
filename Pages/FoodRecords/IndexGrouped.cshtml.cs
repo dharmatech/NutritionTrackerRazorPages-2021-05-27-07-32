@@ -10,16 +10,16 @@ using NutritionTrackerRazorPages.Models;
 
 namespace NutritionTrackerRazorPages.Pages.FoodRecords
 {
-    public class IndexModel : PageModel
+    public class IndexGroupedModel : PageModel
     {
         private readonly NutritionTrackerContext _context;
 
-        public IndexModel(NutritionTrackerContext context)
+        public IndexGroupedModel(NutritionTrackerContext context)
         {
             _context = context;
         }
 
-        public IList<FoodRecord> FoodRecord { get;set; }
+        public IList<FoodRecord> FoodRecord { get; set; }
 
         public async Task OnGetAsync()
         {

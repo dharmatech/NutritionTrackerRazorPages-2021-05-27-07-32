@@ -12,19 +12,23 @@ namespace NutritionTrackerRazorPages.Pages.FoodRecords
 {
     public class CreateModel : PageModel
     {
-        private readonly NutritionTrackerRazorPages.Data.NutritionTrackerContext _context;
+        private readonly NutritionTrackerContext _context;
 
-        public CreateModel(NutritionTrackerRazorPages.Data.NutritionTrackerContext context)
+        public CreateModel(NutritionTrackerContext context)
         {
             _context = context;
         }
 
         public IActionResult OnGet()
         {
-            //ViewData["FoodId"] = new SelectList(_context.Foods, "Id", "Discriminator");
-
             ViewData["FoodId"] = new SelectList(_context.Foods, "Id", "Name");
 
+            FoodRecord = new FoodRecord() 
+            { 
+                Date = DateTime.Now,
+                Time = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, DateTime.Now.Hour, DateTime.Now.Minute, 0)
+            };
+                        
             return Page();
         }
 
@@ -34,17 +38,10 @@ namespace NutritionTrackerRazorPages.Pages.FoodRecords
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync()
         {
-            if (!ModelState.IsValid)
-            {
-                return Page();
-            }
-            
-            //if (FoodRecord.Food.Discriminator == "SimpleFood")
-            //{
+            if (!ModelState.IsValid) return Page();
 
-            //}
-            
             _context.FoodRecords.Add(FoodRecord);
+
             await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");

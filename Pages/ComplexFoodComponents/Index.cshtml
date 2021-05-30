@@ -13,30 +13,28 @@
 <table class="table">
     <thead>
         <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.ComplexFoodComponent[0].ComplexFood)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ComplexFoodComponent[0].SimpleFood)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ComplexFoodComponent[0].Amount)
-            </th>
+            <th>@Html.DisplayNameFor(model => model.ComplexFoodComponent[0].ComplexFood)</th>
+            <th>@Html.DisplayNameFor(model => model.ComplexFoodComponent[0].SimpleFood)</th>
+            <th>@Html.DisplayNameFor(model => model.ComplexFoodComponent[0].Amount)</th>
+            <th>@Html.DisplayNameFor(model => model.ComplexFoodComponent[0].Calories)</th>
+            <th>@Html.DisplayNameFor(model => model.ComplexFoodComponent[0].Fat)</th>
+            <th>@Html.DisplayNameFor(model => model.ComplexFoodComponent[0].Carbohydrates)</th>
+            <th>@Html.DisplayNameFor(model => model.ComplexFoodComponent[0].Protein)</th>
+
             <th></th>
         </tr>
     </thead>
     <tbody>
 @foreach (var item in Model.ComplexFoodComponent) {
         <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.ComplexFood.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SimpleFood.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Amount)
-            </td>
+            <td>@Html.DisplayFor(modelItem => item.ComplexFood.Name)</td>
+            <td>@Html.DisplayFor(modelItem => item.SimpleFood.Name)</td>
+            <td>@Html.DisplayFor(modelItem => item.Amount)</td>
+            <td>@Html.DisplayFor(modelItem => item.Calories)</td>
+            <td>@Html.DisplayFor(modelItem => item.Fat)</td>
+            <td>@Html.DisplayFor(modelItem => item.Carbohydrates)</td>
+            <td>@Html.DisplayFor(modelItem => item.Protein)</td>
+
             <td>
                 <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
                 <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
