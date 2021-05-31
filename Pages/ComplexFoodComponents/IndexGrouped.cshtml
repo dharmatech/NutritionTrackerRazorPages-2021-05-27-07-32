@@ -1,0 +1,58 @@
+﻿@page
+@model NutritionTrackerRazorPages.Pages.ComplexFoodComponents.IndexGroupedModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.ComplexFoodComponent[0].ComplexFood)</th>
+            <th>@Html.DisplayNameFor(model => model.ComplexFoodComponent[0].SimpleFood)</th>
+            <th>@Html.DisplayNameFor(model => model.ComplexFoodComponent[0].Amount)</th>
+            <th>@Html.DisplayNameFor(model => model.ComplexFoodComponent[0].Calories)</th>
+            <th>@Html.DisplayNameFor(model => model.ComplexFoodComponent[0].Fat)</th>
+            <th>@Html.DisplayNameFor(model => model.ComplexFoodComponent[0].Carbohydrates)</th>
+            <th>@Html.DisplayNameFor(model => model.ComplexFoodComponent[0].Protein)</th>
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var group_complex_food in Model.ComplexFoodComponent.GroupBy(complexFoodComponent => complexFoodComponent.ComplexFood))
+        {
+            var i = 0;
+
+            @foreach (var item in group_complex_food)
+            { 
+                <tr>
+                    @if (i == 0) { <td>@Html.DisplayFor(modelItem => item.ComplexFood.Name)</td> } else { <td></td> }
+
+                    <td>@Html.DisplayFor(modelItem => item.SimpleFood.Name)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Amount)</td>
+                    <td>@Utils.Misc.RoundData(item.Calories)</td>
+                    <td>@Utils.Misc.RoundData(item.Fat)</td>
+                    <td>@Utils.Misc.RoundData(item.Carbohydrates)</td>
+                    <td>@Utils.Misc.RoundData(item.Protein)</td>
+
+                    <td>
+                        <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                        <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                        <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+                    </td>
+                </tr>
+
+                { i++; }
+            }
+        }
+    </tbody>
+</table>
+
+

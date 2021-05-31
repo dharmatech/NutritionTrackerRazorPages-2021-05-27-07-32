@@ -17,6 +17,7 @@ namespace NutritionTrackerRazorPages.Data
             var fruit = new FoodCategory() { Name = "Fruit" };
             var legume = new FoodCategory() { Name = "Legume" };
             var grain = new FoodCategory() { Name = "Grain" };
+            var sauce = new FoodCategory() { Name = "Sauce" };
 
             context.FoodCategories.AddRange(meat, vegetable, fruit, legume, grain);
 
@@ -32,8 +33,9 @@ namespace NutritionTrackerRazorPages.Data
             var apple   = new SimpleFood() { Name = "Apple (g)",             FoodCategory = fruit, ServingSize = 100, Calories = 52, Fat = 0.2m, Carbohydrates = 13.8m, Protein = 0.3m };
             var banana  = new SimpleFood() { Name = "Banana (g)",            FoodCategory = fruit, ServingSize = 100, Calories = 89, Fat = 0.3m, Carbohydrates = 22.8m, Protein = 1.1m };
 
+            var LuciniTomatoBasil = new SimpleFood() { Name = "Rustic Tomato Basil [Lucini] (g)", FoodCategory = sauce, ServingSize = 100, Calories = 28, Fat = 1.2m, Carbohydrates = 4m, Protein = 0.8m };
 
-            context.SimpleFoods.AddRange(beef80, basmati, avocado, lentils, lima, onion, yam, apple, banana);
+            context.SimpleFoods.AddRange(beef80, basmati, avocado, lentils, lima, onion, yam, apple, banana, LuciniTomatoBasil);
 
             context.SaveChanges();
 
@@ -61,8 +63,21 @@ namespace NutritionTrackerRazorPages.Data
                 }.ToList()
             };
 
+            var SpaghettiMeatSauce = new ComplexFood()
+            {
+                Name = "Spaghetti Meat Sauce",
+                ServingSize = 1000,
+                ComplexFoodComponents = new[] 
+                {
+                    new ComplexFoodComponent() { SimpleFood = LuciniTomatoBasil, Amount = 400 },
+                    new ComplexFoodComponent() { SimpleFood = beef80, Amount = 454 },
+                    new ComplexFoodComponent() { SimpleFood = onion, Amount = 300 }
+                }.ToList()
+            };
+
             context.ComplexFoods.AddRange(
-                LimaYamOnion
+                LimaYamOnion,
+                SpaghettiMeatSauce
                 );
 
             context.FoodRecords.AddRange(

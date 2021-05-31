@@ -21,7 +21,7 @@ namespace NutritionTrackerRazorPages.Pages.SimpleFoods
 
         public IActionResult OnGet()
         {
-        ViewData["FoodCategoryId"] = new SelectList(_context.FoodCategories, "Id", "Id");
+        ViewData["FoodCategoryId"] = new SelectList(_context.FoodCategories, "Id", "Name");
             return Page();
         }
 

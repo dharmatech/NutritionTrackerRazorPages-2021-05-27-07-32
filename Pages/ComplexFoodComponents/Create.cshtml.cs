@@ -40,7 +40,7 @@ namespace NutritionTrackerRazorPages.Pages.ComplexFoodComponents
             _context.ComplexFoodComponents.Add(ComplexFoodComponent);
             await _context.SaveChangesAsync();
 
-            return RedirectToPage("./Index");
+            return RedirectToPage("./IndexGrouped");
         }
     }
 }
