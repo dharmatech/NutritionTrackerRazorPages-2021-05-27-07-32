@@ -46,11 +46,11 @@
                         @if (j == 0) { <td>@Html.DisplayFor(modelItem => group_time.ElementAt(0).Time)</td> } else { <td></td> }
                         
                         <td>@Html.DisplayFor(modelItem => item.Food.Name)</td>
-                        <td>@Html.DisplayFor(modelItem => item.Amount)</td>
-                        <td>@Html.DisplayFor(modelItem => item.Calories)</td>
-                        <td>@Html.DisplayFor(modelItem => item.Fat)</td>
-                        <td>@Html.DisplayFor(modelItem => item.Carbohydrates)</td>
-                        <td>@Html.DisplayFor(modelItem => item.Protein)</td>
+                        <td>@Utils.Misc.RoundData(item.Amount)</td>
+                        <td>@Utils.Misc.RoundData(item.Calories)</td>
+                        <td>@Utils.Misc.RoundData(item.Fat)</td>
+                        <td>@Utils.Misc.RoundData(item.Carbohydrates)</td>
+                        <td>@Utils.Misc.RoundData(item.Protein)</td>
 
                         <td>
                             <a asp-page="./Edit"    asp-route-id="@item.Id">Edit</a> |
@@ -65,18 +65,42 @@
 
                 <tr>
                     <td></td>
+
+                    <td>
+                        <a asp-page="Create" asp-page-handler="WithDate"
+                           asp-route-Date="@group_date.Key.ToString("yyyy-MM-dd")"
+
+                           asp-route-Time="@group_date.Key.ToString("yyyy-MM-dd") @group_time.Key.ToString("HH:mm")"
+
+
+                           >
+                            Add
+                        </a>
+                    </td>
+
                     <td></td>
-                    <td></td>
-                    <td></td>
-                    <td>@group_time.Sum(healthRecord => healthRecord.Calories).ToString("0.##")</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <td>Meal totals:</td>
+                    <td>@Utils.Misc.RoundData(group_time.Sum(healthRecord => healthRecord.Calories))</td>
+                    <td>@Utils.Misc.RoundData(group_time.Sum(healthRecord => healthRecord.Fat))</td>
+                    <td>@Utils.Misc.RoundData(group_time.Sum(healthRecord => healthRecord.Carbohydrates))</td>
+                    <td>@Utils.Misc.RoundData(group_time.Sum(healthRecord => healthRecord.Protein))</td>
                     <td></td>
                 </tr>
 
                 { i++; }
             }
+
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>Day totals:</td>
+                <td>@Utils.Misc.RoundData(group_date.Sum(healthRecord => healthRecord.Calories))</td>
+                <td>@Utils.Misc.RoundData(group_date.Sum(healthRecord => healthRecord.Fat))</td>
+                <td>@Utils.Misc.RoundData(group_date.Sum(healthRecord => healthRecord.Carbohydrates))</td>
+                <td>@Utils.Misc.RoundData(group_date.Sum(healthRecord => healthRecord.Protein))</td>
+                <td></td>
+            </tr>
         }
 
     </tbody>

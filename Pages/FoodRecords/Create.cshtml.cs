@@ -23,28 +23,52 @@ namespace NutritionTrackerRazorPages.Pages.FoodRecords
         {
             ViewData["FoodId"] = new SelectList(_context.Foods, "Id", "Name");
 
-            FoodRecord = new FoodRecord() 
-            { 
+            FoodRecord = new FoodRecord()
+            {
                 Date = DateTime.Now,
                 Time = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, DateTime.Now.Hour, DateTime.Now.Minute, 0)
             };
-                        
+
             return Page();
         }
 
+
+
         [BindProperty]
         public FoodRecord FoodRecord { get; set; }
+
+
+        public IActionResult OnGetWithDate(DateTime Date, DateTime Time)
+        {
+            ViewData["FoodId"] = new SelectList(_context.Foods, "Id", "Name");
+
+            FoodRecord = new FoodRecord()
+            {
+                Date = Date,
+                Time = Time
+            };
+
+            return Page();
+        }
 
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync()
         {
             if (!ModelState.IsValid) return Page();
 
+            FoodRecord.Time = new DateTime(
+                FoodRecord.Date.Year,
+                FoodRecord.Date.Month,
+                FoodRecord.Date.Day,
+                FoodRecord.Time.Hour,
+                FoodRecord.Time.Minute,
+                0);
+
             _context.FoodRecords.Add(FoodRecord);
 
             await _context.SaveChangesAsync();
 
-            return RedirectToPage("./Index");
+            return RedirectToPage("./IndexGrouped");
         }
     }
 }

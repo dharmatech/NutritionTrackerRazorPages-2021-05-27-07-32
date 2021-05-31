@@ -38,12 +38,12 @@ namespace NutritionTrackerRazorPages.Data
             context.SaveChanges();
 
             context.FoodRecords.AddRange(
-                new FoodRecord() { Date = DateTime.Parse("2021-01-01"), Time = DateTime.Parse("12:00"), Food = beef80, Amount = 200 },
-                new FoodRecord() { Date = DateTime.Parse("2021-01-01"), Time = DateTime.Parse("12:00"), Food = basmati, Amount = 300 },
-                new FoodRecord() { Date = DateTime.Parse("2021-01-01"), Time = DateTime.Parse("12:00"), Food = avocado, Amount = 50 },
-                new FoodRecord() { Date = DateTime.Parse("2021-01-01"), Time = DateTime.Parse("18:00"), Food = lentils, Amount = 250 },
-                new FoodRecord() { Date = DateTime.Parse("2021-01-01"), Time = DateTime.Parse("18:00"), Food = onion, Amount = 150 },
-                new FoodRecord() { Date = DateTime.Parse("2021-01-01"), Time = DateTime.Parse("18:00"), Food = basmati, Amount = 350 }
+                new FoodRecord() { Date = DateTime.Parse("2021-01-01"), Time = DateTime.Parse("2021-01-01 12:00"), Food = beef80, Amount = 200 },
+                new FoodRecord() { Date = DateTime.Parse("2021-01-01"), Time = DateTime.Parse("2021-01-01 12:00"), Food = basmati, Amount = 300 },
+                new FoodRecord() { Date = DateTime.Parse("2021-01-01"), Time = DateTime.Parse("2021-01-01 12:00"), Food = avocado, Amount = 50 },
+                new FoodRecord() { Date = DateTime.Parse("2021-01-01"), Time = DateTime.Parse("2021-01-01 18:00"), Food = lentils, Amount = 250 },
+                new FoodRecord() { Date = DateTime.Parse("2021-01-01"), Time = DateTime.Parse("2021-01-01 18:00"), Food = onion, Amount = 150 },
+                new FoodRecord() { Date = DateTime.Parse("2021-01-01"), Time = DateTime.Parse("2021-01-01 18:00"), Food = basmati, Amount = 350 }
 
                 );
 
@@ -66,8 +66,8 @@ namespace NutritionTrackerRazorPages.Data
                 );
 
             context.FoodRecords.AddRange(
-                new FoodRecord() { Date = DateTime.Parse("2021-05-29"), Time = DateTime.Parse("12:00"), Food = LimaYamOnion, Amount = 300 },
-                new FoodRecord() { Date = DateTime.Parse("2021-05-29"), Time = DateTime.Parse("18:00"), Food = LimaYamOnion, Amount = 500 }
+                new FoodRecord() { Date = DateTime.Parse("2021-05-29"), Time = DateTime.Parse("2021-05-29 12:00"), Food = LimaYamOnion, Amount = 300 },
+                new FoodRecord() { Date = DateTime.Parse("2021-05-29"), Time = DateTime.Parse("2021-05-29 18:00"), Food = LimaYamOnion, Amount = 500 }
                 );
 
             context.SaveChanges();            

@@ -54,6 +54,14 @@ namespace NutritionTrackerRazorPages.Pages.FoodRecords
 
             try
             {
+                FoodRecord.Time = new DateTime(
+                    FoodRecord.Date.Year,
+                    FoodRecord.Date.Month,
+                    FoodRecord.Date.Day,
+                    FoodRecord.Time.Hour,
+                    FoodRecord.Time.Minute,
+                    0);
+
                 await _context.SaveChangesAsync();
             }
             catch (DbUpdateConcurrencyException)
