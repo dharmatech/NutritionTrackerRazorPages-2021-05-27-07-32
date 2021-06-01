@@ -76,7 +76,7 @@ namespace NutritionTrackerRazorPages.Pages.FoodRecords
                 }
             }
 
-            return RedirectToPage("./Index");
+            return RedirectToPage("./IndexGrouped");
         }
 
         private bool FoodRecordExists(int id)
