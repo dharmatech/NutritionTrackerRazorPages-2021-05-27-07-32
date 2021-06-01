@@ -24,6 +24,7 @@ namespace NutritionTrackerRazorPages.Models
 
         [ValidateNever] public decimal Calories      => Amount / Food.ServingSize * Food.Calories;
         [ValidateNever] public decimal Fat           => Amount / Food.ServingSize * Food.Fat;
+        [ValidateNever] public decimal Sodium        => Amount / Food.ServingSize * Food.Sodium;
         [ValidateNever] public decimal Carbohydrates => Amount / Food.ServingSize * Food.Carbohydrates;
         [ValidateNever] public decimal Protein       => Amount / Food.ServingSize * Food.Protein;
     }

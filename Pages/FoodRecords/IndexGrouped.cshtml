@@ -21,6 +21,7 @@
             <th>@Html.DisplayNameFor(model => model.FoodRecord[0].Amount)</th>
             <th>@Html.DisplayNameFor(model => model.FoodRecord[0].Calories)</th>
             <th>@Html.DisplayNameFor(model => model.FoodRecord[0].Fat)</th>
+            <th>@Html.DisplayNameFor(model => model.FoodRecord[0].Sodium)</th>
             <th>@Html.DisplayNameFor(model => model.FoodRecord[0].Carbohydrates)</th>
             <th>@Html.DisplayNameFor(model => model.FoodRecord[0].Protein)</th>
             <th></th>
@@ -49,6 +50,7 @@
                         <td>@Utils.Misc.RoundData(item.Amount)</td>
                         <td>@Utils.Misc.RoundData(item.Calories)</td>
                         <td>@Utils.Misc.RoundData(item.Fat)</td>
+                        <td>@Utils.Misc.RoundData(item.Sodium)</td>
                         <td>@Utils.Misc.RoundData(item.Carbohydrates)</td>
                         <td>@Utils.Misc.RoundData(item.Protein)</td>
 
@@ -82,6 +84,7 @@
                     <td>Meal totals:</td>
                     <td>@Utils.Misc.RoundData(group_time.Sum(healthRecord => healthRecord.Calories))</td>
                     <td>@Utils.Misc.RoundData(group_time.Sum(healthRecord => healthRecord.Fat))</td>
+                    <td>@Utils.Misc.RoundData(group_time.Sum(healthRecord => healthRecord.Sodium))</td>
                     <td>@Utils.Misc.RoundData(group_time.Sum(healthRecord => healthRecord.Carbohydrates))</td>
                     <td>@Utils.Misc.RoundData(group_time.Sum(healthRecord => healthRecord.Protein))</td>
                     <td></td>
@@ -97,6 +100,7 @@
                 <td>Day totals:</td>
                 <td>@Utils.Misc.RoundData(group_date.Sum(healthRecord => healthRecord.Calories))</td>
                 <td>@Utils.Misc.RoundData(group_date.Sum(healthRecord => healthRecord.Fat))</td>
+                <td>@Utils.Misc.RoundData(group_date.Sum(healthRecord => healthRecord.Sodium))</td>
                 <td>@Utils.Misc.RoundData(group_date.Sum(healthRecord => healthRecord.Carbohydrates))</td>
                 <td>@Utils.Misc.RoundData(group_date.Sum(healthRecord => healthRecord.Protein))</td>
                 <td></td>

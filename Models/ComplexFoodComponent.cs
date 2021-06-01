@@ -17,6 +17,7 @@ namespace NutritionTrackerRazorPages.Models
 
         [ValidateNever] public decimal Calories      => SimpleFood == null ? 0 : Amount / SimpleFood.ServingSize * SimpleFood.Calories;
         [ValidateNever] public decimal Fat           => SimpleFood == null ? 0 : Amount / SimpleFood.ServingSize * SimpleFood.Fat;
+        [ValidateNever] public decimal Sodium        => SimpleFood == null ? 0 : Amount / SimpleFood.ServingSize * SimpleFood.Sodium;
         [ValidateNever] public decimal Carbohydrates => SimpleFood == null ? 0 : Amount / SimpleFood.ServingSize * SimpleFood.Carbohydrates;
         [ValidateNever] public decimal Protein       => SimpleFood == null ? 0 : Amount / SimpleFood.ServingSize * SimpleFood.Protein;
     }

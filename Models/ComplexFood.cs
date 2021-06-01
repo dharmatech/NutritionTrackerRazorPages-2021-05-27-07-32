@@ -24,7 +24,14 @@ namespace NutritionTrackerRazorPages.Models
             get => ComplexFoodComponents == null ? 0 : ComplexFoodComponents.Sum(component => component.Fat);
             set { }
         }
-                    
+
+        [ValidateNever]
+        public override decimal Sodium
+        {
+            get => ComplexFoodComponents == null ? 0 : ComplexFoodComponents.Sum(component => component.Sodium);
+            set { }
+        }
+
         [ValidateNever] 
         public override decimal Carbohydrates
         {
