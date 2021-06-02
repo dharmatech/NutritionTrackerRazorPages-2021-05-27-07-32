@@ -9,7 +9,7 @@ using NutritionTrackerRazorPages.Data;
 namespace NutritionTrackerRazorPages.Migrations
 {
     [DbContext(typeof(NutritionTrackerContext))]
-    [Migration("20210529221811_InitialCreate")]
+    [Migration("20210601232751_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -48,10 +48,22 @@ namespace NutritionTrackerRazorPages.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
+                    b.Property<decimal>("AddedSugars")
+                        .HasColumnType("TEXT");
+
+                    b.Property<decimal>("Calcium")
+                        .HasColumnType("TEXT");
+
                     b.Property<decimal>("Calories")
                         .HasColumnType("TEXT");
 
                     b.Property<decimal>("Carbohydrates")
+                        .HasColumnType("TEXT");
+
+                    b.Property<decimal>("Cholesterol")
+                        .HasColumnType("TEXT");
+
+                    b.Property<decimal>("Copper")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Discriminator")
@@ -61,13 +73,106 @@ namespace NutritionTrackerRazorPages.Migrations
                     b.Property<decimal>("Fat")
                         .HasColumnType("TEXT");
 
+                    b.Property<decimal>("Fiber")
+                        .HasColumnType("TEXT");
+
+                    b.Property<decimal>("Folate")
+                        .HasColumnType("TEXT");
+
+                    b.Property<decimal>("InsolubleFiber")
+                        .HasColumnType("TEXT");
+
+                    b.Property<decimal>("Iron")
+                        .HasColumnType("TEXT");
+
+                    b.Property<decimal>("Magnesium")
+                        .HasColumnType("TEXT");
+
+                    b.Property<decimal>("Manganese")
+                        .HasColumnType("TEXT");
+
+                    b.Property<decimal>("MonounsaturatedFat")
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("Name")
+                        .HasColumnType("TEXT");
+
+                    b.Property<decimal>("Omega3")
+                        .HasColumnType("TEXT");
+
+                    b.Property<decimal>("Omega6")
+                        .HasColumnType("TEXT");
+
+                    b.Property<decimal>("Phosphorus")
+                        .HasColumnType("TEXT");
+
+                    b.Property<decimal>("PolyunsaturatedFat")
+                        .HasColumnType("TEXT");
+
+                    b.Property<decimal>("Potassium")
                         .HasColumnType("TEXT");
 
                     b.Property<decimal>("Protein")
                         .HasColumnType("TEXT");
 
+                    b.Property<decimal>("SaturatedFat")
+                        .HasColumnType("TEXT");
+
+                    b.Property<decimal>("Selenium")
+                        .HasColumnType("TEXT");
+
                     b.Property<decimal>("ServingSize")
+                        .HasColumnType("TEXT");
+
+                    b.Property<decimal>("Sodium")
+                        .HasColumnType("TEXT");
+
+                    b.Property<decimal>("SolubleFiber")
+                        .HasColumnType("TEXT");
+
+                    b.Property<decimal>("Starch")
+                        .HasColumnType("TEXT");
+
+                    b.Property<decimal>("Sugars")
+                        .HasColumnType("TEXT");
+
+                    b.Property<decimal>("TransFat")
+                        .HasColumnType("TEXT");
+
+                    b.Property<decimal>("VitaminA")
+                        .HasColumnType("TEXT");
+
+                    b.Property<decimal>("VitaminB1")
+                        .HasColumnType("TEXT");
+
+                    b.Property<decimal>("VitaminB12")
+                        .HasColumnType("TEXT");
+
+                    b.Property<decimal>("VitaminB2")
+                        .HasColumnType("TEXT");
+
+                    b.Property<decimal>("VitaminB3")
+                        .HasColumnType("TEXT");
+
+                    b.Property<decimal>("VitaminB5")
+                        .HasColumnType("TEXT");
+
+                    b.Property<decimal>("VitaminB6")
+                        .HasColumnType("TEXT");
+
+                    b.Property<decimal>("VitaminC")
+                        .HasColumnType("TEXT");
+
+                    b.Property<decimal>("VitaminD")
+                        .HasColumnType("TEXT");
+
+                    b.Property<decimal>("VitaminE")
+                        .HasColumnType("TEXT");
+
+                    b.Property<decimal>("VitaminK")
+                        .HasColumnType("TEXT");
+
+                    b.Property<decimal>("Zinc")
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");
@@ -103,10 +208,6 @@ namespace NutritionTrackerRazorPages.Migrations
                     b.Property<DateTime>("Date")
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("Discriminator")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
                     b.Property<int>("FoodId")
                         .HasColumnType("INTEGER");
 
@@ -118,8 +219,6 @@ namespace NutritionTrackerRazorPages.Migrations
                     b.HasIndex("FoodId");
 
                     b.ToTable("FoodRecord");
-
-                    b.HasDiscriminator<string>("Discriminator").HasValue("FoodRecord");
                 });
 
             modelBuilder.Entity("NutritionTrackerRazorPages.Models.ComplexFood", b =>
@@ -139,20 +238,6 @@ namespace NutritionTrackerRazorPages.Migrations
                     b.HasIndex("FoodCategoryId");
 
                     b.HasDiscriminator().HasValue("SimpleFood");
-                });
-
-            modelBuilder.Entity("NutritionTrackerRazorPages.Models.ComplexFoodRecord", b =>
-                {
-                    b.HasBaseType("NutritionTrackerRazorPages.Models.FoodRecord");
-
-                    b.HasDiscriminator().HasValue("ComplexFoodRecord");
-                });
-
-            modelBuilder.Entity("NutritionTrackerRazorPages.Models.SimpleFoodRecord", b =>
-                {
-                    b.HasBaseType("NutritionTrackerRazorPages.Models.FoodRecord");
-
-                    b.HasDiscriminator().HasValue("SimpleFoodRecord");
                 });
 
             modelBuilder.Entity("NutritionTrackerRazorPages.Models.ComplexFoodComponent", b =>

@@ -11,20 +11,117 @@
 <p>
     <a asp-page="Create">Create New</a>
 </p>
-<table class="table">
+<table class="table table-sm-- table-striped-- table-bordered--">
 
     <thead>
+        <tr>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th class="table-bordered" colspan="8">Lipids</th>
+            <th class="table-bordered" colspan="7">Carbohydrates</th>
+            <th></th>
+            <th class="table-bordered" colspan="12">Vitamins</th>
+            <th class="table-bordered" colspan="10">Minerals</th>
+        </tr>
+
         <tr>
             <th>@Html.DisplayNameFor(model => model.FoodRecord[0].Date)</th>
             <th>@Html.DisplayNameFor(model => model.FoodRecord[0].Time)</th>
             <th>@Html.DisplayNameFor(model => model.FoodRecord[0].Food)</th>
             <th>@Html.DisplayNameFor(model => model.FoodRecord[0].Amount)</th>
-            <th>@Html.DisplayNameFor(model => model.FoodRecord[0].Calories)</th>
+
+            @*<th>@Html.DisplayNameFor(model => model.FoodRecord[0].Calories)</th>
+        <th>@Html.DisplayNameFor(model => model.FoodRecord[0].Fat)</th>
+        <th>@Html.DisplayNameFor(model => model.FoodRecord[0].Sodium)</th>
+        <th>@Html.DisplayNameFor(model => model.FoodRecord[0].Carbohydrates)</th>
+        <th>@Html.DisplayNameFor(model => model.FoodRecord[0].Protein)</th>
+        <th></th>*@
+
+            @*<th>@Html.DisplayNameFor(model => model.FoodRecord[0].Calories)</th>
             <th>@Html.DisplayNameFor(model => model.FoodRecord[0].Fat)</th>
-            <th>@Html.DisplayNameFor(model => model.FoodRecord[0].Sodium)</th>
+            <th>@Html.DisplayNameFor(model => model.FoodRecord[0].MonounsaturatedFat)</th>
+            <th>@Html.DisplayNameFor(model => model.FoodRecord[0].PolyunsaturatedFat)</th>
+            <th>@Html.DisplayNameFor(model => model.FoodRecord[0].Omega3)</th>
+            <th>@Html.DisplayNameFor(model => model.FoodRecord[0].Omega6)</th>
+            <th>@Html.DisplayNameFor(model => model.FoodRecord[0].SaturatedFat)</th>
+            <th>@Html.DisplayNameFor(model => model.FoodRecord[0].TransFat)</th>
+            <th>@Html.DisplayNameFor(model => model.FoodRecord[0].Cholesterol)</th>
             <th>@Html.DisplayNameFor(model => model.FoodRecord[0].Carbohydrates)</th>
+            <th>@Html.DisplayNameFor(model => model.FoodRecord[0].Fiber)</th>
+            <th>@Html.DisplayNameFor(model => model.FoodRecord[0].SolubleFiber)</th>
+            <th>@Html.DisplayNameFor(model => model.FoodRecord[0].InsolubleFiber)</th>
+            <th>@Html.DisplayNameFor(model => model.FoodRecord[0].Starch)</th>
+            <th>@Html.DisplayNameFor(model => model.FoodRecord[0].Sugars)</th>
+            <th>@Html.DisplayNameFor(model => model.FoodRecord[0].AddedSugars)</th>
             <th>@Html.DisplayNameFor(model => model.FoodRecord[0].Protein)</th>
+            <th>@Html.DisplayNameFor(model => model.FoodRecord[0].VitaminB1)</th>
+            <th>@Html.DisplayNameFor(model => model.FoodRecord[0].VitaminB2)</th>
+            <th>@Html.DisplayNameFor(model => model.FoodRecord[0].VitaminB3)</th>
+            <th>@Html.DisplayNameFor(model => model.FoodRecord[0].VitaminB5)</th>
+            <th>@Html.DisplayNameFor(model => model.FoodRecord[0].VitaminB6)</th>
+            <th>@Html.DisplayNameFor(model => model.FoodRecord[0].VitaminB12)</th>
+            <th>@Html.DisplayNameFor(model => model.FoodRecord[0].Folate)</th>
+            <th>@Html.DisplayNameFor(model => model.FoodRecord[0].VitaminA)</th>
+            <th>@Html.DisplayNameFor(model => model.FoodRecord[0].VitaminC)</th>
+            <th>@Html.DisplayNameFor(model => model.FoodRecord[0].VitaminD)</th>
+            <th>@Html.DisplayNameFor(model => model.FoodRecord[0].VitaminE)</th>
+            <th>@Html.DisplayNameFor(model => model.FoodRecord[0].VitaminK)</th>
+            <th>@Html.DisplayNameFor(model => model.FoodRecord[0].Calcium)</th>
+            <th>@Html.DisplayNameFor(model => model.FoodRecord[0].Copper)</th>
+            <th>@Html.DisplayNameFor(model => model.FoodRecord[0].Iron)</th>
+            <th>@Html.DisplayNameFor(model => model.FoodRecord[0].Magnesium)</th>
+            <th>@Html.DisplayNameFor(model => model.FoodRecord[0].Manganese)</th>
+            <th>@Html.DisplayNameFor(model => model.FoodRecord[0].Phosphorus)</th>
+            <th>@Html.DisplayNameFor(model => model.FoodRecord[0].Potassium)</th>
+            <th>@Html.DisplayNameFor(model => model.FoodRecord[0].Selenium)</th>
+            <th>@Html.DisplayNameFor(model => model.FoodRecord[0].Sodium)</th>
+            <th>@Html.DisplayNameFor(model => model.FoodRecord[0].Zinc)</th>*@
+
+            <th>Cals</th>
+            <th>Fat</th>
+            <th>Mono</th>
+            <th>Poly</th>
+            <th>Om3</th>
+            <th>Om6</th>
+            <th>Sat</th>
+            <th>Trans</th>
+            <th>Chol</th>
+            <th>Carb</th>
+            <th>Fiber</th>
+            <th>Sol</th>
+            <th>Insol</th>
+            <th>Starch</th>
+            <th>Sug</th>
+            <th>Add</th>
+            <th>Pro</th>
+            <th>B1</th>
+            <th>B2</th>
+            <th>B3</th>
+            <th>B5</th>
+            <th>B6</th>
+            <th>B12</th>
+            <th>Fol</th>
+            <th>A</th>
+            <th>C</th>
+            <th>D</th>
+            <th>E</th>
+            <th>K</th>
+            <th>Cal</th>
+            <th>Cop</th>
+            <th>Iron</th>
+            <th>Mag</th>
+            <th>Mang</th>
+            <th>Pho</th>
+            <th>Pot</th>
+            <th>Sel</th>
+            <th>Sod</th>
+            <th>Zinc</th>
+
             <th></th>
+
         </tr>
     </thead>
 
@@ -48,24 +145,65 @@
                         
                         <td>@Html.DisplayFor(modelItem => item.Food.Name)</td>
                         <td>@Utils.Misc.RoundData(item.Amount)</td>
-                        <td>@Utils.Misc.RoundData(item.Calories)</td>
+
+                        @*<td>@Utils.Misc.RoundData(item.Calories)</td>
                         <td>@Utils.Misc.RoundData(item.Fat)</td>
                         <td>@Utils.Misc.RoundData(item.Sodium)</td>
                         <td>@Utils.Misc.RoundData(item.Carbohydrates)</td>
-                        <td>@Utils.Misc.RoundData(item.Protein)</td>
+                        <td>@Utils.Misc.RoundData(item.Protein)</td>*@
 
-                        <td>
+                        <td>@Utils.Misc.RoundData(item.Calories)</td>
+                        <td>@Utils.Misc.RoundData(item.Fat)</td>
+                        <td>@Utils.Misc.RoundData(item.MonounsaturatedFat)</td>
+                        <td>@Utils.Misc.RoundData(item.PolyunsaturatedFat)</td>
+                        <td>@Utils.Misc.RoundData(item.Omega3)</td>
+                        <td>@Utils.Misc.RoundData(item.Omega6)</td>
+                        <td>@Utils.Misc.RoundData(item.SaturatedFat)</td>
+                        <td>@Utils.Misc.RoundData(item.TransFat)</td>
+                        <td>@Utils.Misc.RoundData(item.Cholesterol)</td>
+                        <td>@Utils.Misc.RoundData(item.Carbohydrates)</td>
+                        <td>@Utils.Misc.RoundData(item.Fiber)</td>
+                        <td>@Utils.Misc.RoundData(item.SolubleFiber)</td>
+                        <td>@Utils.Misc.RoundData(item.InsolubleFiber)</td>
+                        <td>@Utils.Misc.RoundData(item.Starch)</td>
+                        <td>@Utils.Misc.RoundData(item.Sugars)</td>
+                        <td>@Utils.Misc.RoundData(item.AddedSugars)</td>
+                        <td>@Utils.Misc.RoundData(item.Protein)</td>
+                        <td>@Utils.Misc.RoundData(item.VitaminB1)</td>
+                        <td>@Utils.Misc.RoundData(item.VitaminB2)</td>
+                        <td>@Utils.Misc.RoundData(item.VitaminB3)</td>
+                        <td>@Utils.Misc.RoundData(item.VitaminB5)</td>
+                        <td>@Utils.Misc.RoundData(item.VitaminB6)</td>
+                        <td>@Utils.Misc.RoundData(item.VitaminB12)</td>
+                        <td>@Utils.Misc.RoundData(item.Folate)</td>
+                        <td>@Utils.Misc.RoundData(item.VitaminA)</td>
+                        <td>@Utils.Misc.RoundData(item.VitaminC)</td>
+                        <td>@Utils.Misc.RoundData(item.VitaminD)</td>
+                        <td>@Utils.Misc.RoundData(item.VitaminE)</td>
+                        <td>@Utils.Misc.RoundData(item.VitaminK)</td>
+                        <td>@Utils.Misc.RoundData(item.Calcium)</td>
+                        <td>@Utils.Misc.RoundData(item.Copper)</td>
+                        <td>@Utils.Misc.RoundData(item.Iron)</td>
+                        <td>@Utils.Misc.RoundData(item.Magnesium)</td>
+                        <td>@Utils.Misc.RoundData(item.Manganese)</td>
+                        <td>@Utils.Misc.RoundData(item.Phosphorus)</td>
+                        <td>@Utils.Misc.RoundData(item.Potassium)</td>
+                        <td>@Utils.Misc.RoundData(item.Selenium)</td>
+                        <td>@Utils.Misc.RoundData(item.Sodium)</td>
+                        <td>@Utils.Misc.RoundData(item.Zinc)</td>
+
+                        @*<td>
                             <a asp-page="./Edit"    asp-route-id="@item.Id">Edit</a> |
                             <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
                             <a asp-page="./Delete"  asp-route-id="@item.Id">Delete</a>
-                        </td>
+                        </td>*@
 
                     </tr>
 
                     { j++; }
                 }
 
-                <tr>
+                <tr class="table-info">
                     <td></td>
 
                     <td>
@@ -82,27 +220,110 @@
 
                     <td></td>
                     <td>Meal totals:</td>
-                    <td>@Utils.Misc.RoundData(group_time.Sum(healthRecord => healthRecord.Calories))</td>
+                    @*<td>@Utils.Misc.RoundData(group_time.Sum(healthRecord => healthRecord.Calories))</td>
                     <td>@Utils.Misc.RoundData(group_time.Sum(healthRecord => healthRecord.Fat))</td>
                     <td>@Utils.Misc.RoundData(group_time.Sum(healthRecord => healthRecord.Sodium))</td>
                     <td>@Utils.Misc.RoundData(group_time.Sum(healthRecord => healthRecord.Carbohydrates))</td>
+                    <td>@Utils.Misc.RoundData(group_time.Sum(healthRecord => healthRecord.Protein))</td>*@
+
+                    <td>@Utils.Misc.RoundData(group_time.Sum(healthRecord => healthRecord.Calories))</td>
+                    <td>@Utils.Misc.RoundData(group_time.Sum(healthRecord => healthRecord.Fat))</td>
+                    <td>@Utils.Misc.RoundData(group_time.Sum(healthRecord => healthRecord.MonounsaturatedFat))</td>
+                    <td>@Utils.Misc.RoundData(group_time.Sum(healthRecord => healthRecord.PolyunsaturatedFat))</td>
+                    <td>@Utils.Misc.RoundData(group_time.Sum(healthRecord => healthRecord.Omega3))</td>
+                    <td>@Utils.Misc.RoundData(group_time.Sum(healthRecord => healthRecord.Omega6))</td>
+                    <td>@Utils.Misc.RoundData(group_time.Sum(healthRecord => healthRecord.SaturatedFat))</td>
+                    <td>@Utils.Misc.RoundData(group_time.Sum(healthRecord => healthRecord.TransFat))</td>
+                    <td>@Utils.Misc.RoundData(group_time.Sum(healthRecord => healthRecord.Cholesterol))</td>
+                    <td>@Utils.Misc.RoundData(group_time.Sum(healthRecord => healthRecord.Carbohydrates))</td>
+                    <td>@Utils.Misc.RoundData(group_time.Sum(healthRecord => healthRecord.Fiber))</td>
+                    <td>@Utils.Misc.RoundData(group_time.Sum(healthRecord => healthRecord.SolubleFiber))</td>
+                    <td>@Utils.Misc.RoundData(group_time.Sum(healthRecord => healthRecord.InsolubleFiber))</td>
+                    <td>@Utils.Misc.RoundData(group_time.Sum(healthRecord => healthRecord.Starch))</td>
+                    <td>@Utils.Misc.RoundData(group_time.Sum(healthRecord => healthRecord.Sugars))</td>
+                    <td>@Utils.Misc.RoundData(group_time.Sum(healthRecord => healthRecord.AddedSugars))</td>
                     <td>@Utils.Misc.RoundData(group_time.Sum(healthRecord => healthRecord.Protein))</td>
+                    <td>@Utils.Misc.RoundData(group_time.Sum(healthRecord => healthRecord.VitaminB1))</td>
+                    <td>@Utils.Misc.RoundData(group_time.Sum(healthRecord => healthRecord.VitaminB2))</td>
+                    <td>@Utils.Misc.RoundData(group_time.Sum(healthRecord => healthRecord.VitaminB3))</td>
+                    <td>@Utils.Misc.RoundData(group_time.Sum(healthRecord => healthRecord.VitaminB5))</td>
+                    <td>@Utils.Misc.RoundData(group_time.Sum(healthRecord => healthRecord.VitaminB6))</td>
+                    <td>@Utils.Misc.RoundData(group_time.Sum(healthRecord => healthRecord.VitaminB12))</td>
+                    <td>@Utils.Misc.RoundData(group_time.Sum(healthRecord => healthRecord.Folate))</td>
+                    <td>@Utils.Misc.RoundData(group_time.Sum(healthRecord => healthRecord.VitaminA))</td>
+                    <td>@Utils.Misc.RoundData(group_time.Sum(healthRecord => healthRecord.VitaminC))</td>
+                    <td>@Utils.Misc.RoundData(group_time.Sum(healthRecord => healthRecord.VitaminD))</td>
+                    <td>@Utils.Misc.RoundData(group_time.Sum(healthRecord => healthRecord.VitaminE))</td>
+                    <td>@Utils.Misc.RoundData(group_time.Sum(healthRecord => healthRecord.VitaminK))</td>
+                    <td>@Utils.Misc.RoundData(group_time.Sum(healthRecord => healthRecord.Calcium))</td>
+                    <td>@Utils.Misc.RoundData(group_time.Sum(healthRecord => healthRecord.Copper))</td>
+                    <td>@Utils.Misc.RoundData(group_time.Sum(healthRecord => healthRecord.Iron))</td>
+                    <td>@Utils.Misc.RoundData(group_time.Sum(healthRecord => healthRecord.Magnesium))</td>
+                    <td>@Utils.Misc.RoundData(group_time.Sum(healthRecord => healthRecord.Manganese))</td>
+                    <td>@Utils.Misc.RoundData(group_time.Sum(healthRecord => healthRecord.Phosphorus))</td>
+                    <td>@Utils.Misc.RoundData(group_time.Sum(healthRecord => healthRecord.Potassium))</td>
+                    <td>@Utils.Misc.RoundData(group_time.Sum(healthRecord => healthRecord.Selenium))</td>
+                    <td>@Utils.Misc.RoundData(group_time.Sum(healthRecord => healthRecord.Sodium))</td>
+                    <td>@Utils.Misc.RoundData(group_time.Sum(healthRecord => healthRecord.Zinc))</td>
                     <td></td>
                 </tr>
 
                 { i++; }
             }
 
-            <tr>
+            <tr class="table-secondary">
                 <td></td>
                 <td></td>
                 <td></td>
                 <td>Day totals:</td>
-                <td>@Utils.Misc.RoundData(group_date.Sum(healthRecord => healthRecord.Calories))</td>
+
+                @*<td>@Utils.Misc.RoundData(group_date.Sum(healthRecord => healthRecord.Calories))</td>
                 <td>@Utils.Misc.RoundData(group_date.Sum(healthRecord => healthRecord.Fat))</td>
                 <td>@Utils.Misc.RoundData(group_date.Sum(healthRecord => healthRecord.Sodium))</td>
                 <td>@Utils.Misc.RoundData(group_date.Sum(healthRecord => healthRecord.Carbohydrates))</td>
+                <td>@Utils.Misc.RoundData(group_date.Sum(healthRecord => healthRecord.Protein))</td>*@
+
+                <td>@Utils.Misc.RoundData(group_date.Sum(healthRecord => healthRecord.Calories))</td>
+                <td>@Utils.Misc.RoundData(group_date.Sum(healthRecord => healthRecord.Fat))</td>
+                <td>@Utils.Misc.RoundData(group_date.Sum(healthRecord => healthRecord.MonounsaturatedFat))</td>
+                <td>@Utils.Misc.RoundData(group_date.Sum(healthRecord => healthRecord.PolyunsaturatedFat))</td>
+                <td>@Utils.Misc.RoundData(group_date.Sum(healthRecord => healthRecord.Omega3))</td>
+                <td>@Utils.Misc.RoundData(group_date.Sum(healthRecord => healthRecord.Omega6))</td>
+                <td>@Utils.Misc.RoundData(group_date.Sum(healthRecord => healthRecord.SaturatedFat))</td>
+                <td>@Utils.Misc.RoundData(group_date.Sum(healthRecord => healthRecord.TransFat))</td>
+                <td>@Utils.Misc.RoundData(group_date.Sum(healthRecord => healthRecord.Cholesterol))</td>
+                <td>@Utils.Misc.RoundData(group_date.Sum(healthRecord => healthRecord.Carbohydrates))</td>
+                <td>@Utils.Misc.RoundData(group_date.Sum(healthRecord => healthRecord.Fiber))</td>
+                <td>@Utils.Misc.RoundData(group_date.Sum(healthRecord => healthRecord.SolubleFiber))</td>
+                <td>@Utils.Misc.RoundData(group_date.Sum(healthRecord => healthRecord.InsolubleFiber))</td>
+                <td>@Utils.Misc.RoundData(group_date.Sum(healthRecord => healthRecord.Starch))</td>
+                <td>@Utils.Misc.RoundData(group_date.Sum(healthRecord => healthRecord.Sugars))</td>
+                <td>@Utils.Misc.RoundData(group_date.Sum(healthRecord => healthRecord.AddedSugars))</td>
                 <td>@Utils.Misc.RoundData(group_date.Sum(healthRecord => healthRecord.Protein))</td>
+                <td>@Utils.Misc.RoundData(group_date.Sum(healthRecord => healthRecord.VitaminB1))</td>
+                <td>@Utils.Misc.RoundData(group_date.Sum(healthRecord => healthRecord.VitaminB2))</td>
+                <td>@Utils.Misc.RoundData(group_date.Sum(healthRecord => healthRecord.VitaminB3))</td>
+                <td>@Utils.Misc.RoundData(group_date.Sum(healthRecord => healthRecord.VitaminB5))</td>
+                <td>@Utils.Misc.RoundData(group_date.Sum(healthRecord => healthRecord.VitaminB6))</td>
+                <td>@Utils.Misc.RoundData(group_date.Sum(healthRecord => healthRecord.VitaminB12))</td>
+                <td>@Utils.Misc.RoundData(group_date.Sum(healthRecord => healthRecord.Folate))</td>
+                <td>@Utils.Misc.RoundData(group_date.Sum(healthRecord => healthRecord.VitaminA))</td>
+                <td>@Utils.Misc.RoundData(group_date.Sum(healthRecord => healthRecord.VitaminC))</td>
+                <td>@Utils.Misc.RoundData(group_date.Sum(healthRecord => healthRecord.VitaminD))</td>
+                <td>@Utils.Misc.RoundData(group_date.Sum(healthRecord => healthRecord.VitaminE))</td>
+                <td>@Utils.Misc.RoundData(group_date.Sum(healthRecord => healthRecord.VitaminK))</td>
+                <td>@Utils.Misc.RoundData(group_date.Sum(healthRecord => healthRecord.Calcium))</td>
+                <td>@Utils.Misc.RoundData(group_date.Sum(healthRecord => healthRecord.Copper))</td>
+                <td>@Utils.Misc.RoundData(group_date.Sum(healthRecord => healthRecord.Iron))</td>
+                <td>@Utils.Misc.RoundData(group_date.Sum(healthRecord => healthRecord.Magnesium))</td>
+                <td>@Utils.Misc.RoundData(group_date.Sum(healthRecord => healthRecord.Manganese))</td>
+                <td>@Utils.Misc.RoundData(group_date.Sum(healthRecord => healthRecord.Phosphorus))</td>
+                <td>@Utils.Misc.RoundData(group_date.Sum(healthRecord => healthRecord.Potassium))</td>
+                <td>@Utils.Misc.RoundData(group_date.Sum(healthRecord => healthRecord.Selenium))</td>
+                <td>@Utils.Misc.RoundData(group_date.Sum(healthRecord => healthRecord.Sodium))</td>
+                <td>@Utils.Misc.RoundData(group_date.Sum(healthRecord => healthRecord.Zinc))</td>
+
+
                 <td></td>
             </tr>
         }

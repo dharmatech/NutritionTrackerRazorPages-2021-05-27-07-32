@@ -5,13 +5,11 @@ Calories
 Fat
 MonounsaturatedFat
 PolyunsaturatedFat
-Omega-3
-Omega-6
+Omega3
+Omega6
 SaturatedFat
 TransFat
 Cholesterol
-
-Sodium
 
 Carbohydrates
 Fiber
@@ -23,10 +21,32 @@ AddedSugars
 
 Protein
 
+VitaminB1
+VitaminB2
+VitaminB3
+VitaminB5
+VitaminB6
+VitaminB12
+
+Folate
+
+VitaminA
+VitaminC
 VitaminD
+VitaminE
+VitaminK
+
+
 Calcium
+Copper
 Iron
+Magnesium
+Manganese
+Phosphorus
 Potassium
+Selenium
+Sodium
+Zinc
 "@
 
 $properties = $properties_string.Split([Environment]::NewLine, [System.StringSplitOptions]::RemoveEmptyEntries)
@@ -64,15 +84,8 @@ foreach ($property in $properties)
 {
 
 @"
-[ValidateNever]
-public override decimal $property
-{
-    get => ComplexFoodComponents == null ? 0 : ComplexFoodComponents.Sum(component => component.$property);
-    set { }
-}
-"@
-
-''
+[ValidateNever] public override decimal {0,-18} {{ get => ComplexFoodComponents == null ? 0 : ComplexFoodComponents.Sum(component => component.{0}); set {{ }} }}
+"@ -f $property
 
 }
 # ----------------------------------------------------------------------
