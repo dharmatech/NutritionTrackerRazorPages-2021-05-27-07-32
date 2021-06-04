@@ -160,3 +160,51 @@ foreach ($property in $properties)
 }
 
 ''
+# ----------------------------------------------------------------------
+
+'IndexTabulator.cshtml'
+
+foreach ($property in $properties)
+{
+
+@"
+{0,-18}: "@(Utils.Misc.RoundData(elt.{0}))",
+"@ -f $property
+
+}
+
+''
+
+foreach ($property in $properties)
+{
+
+@"
+{{ title: {0,-21} field: "{1}" }},
+"@ -f "`"$property`",", $property
+
+}
+
+# ----------------------------------------------------------------------
+
+'IndexDevExtreme.cshtml'
+
+foreach ($property in $properties)
+{
+
+@"
+{0,-18}: "@(Utils.Misc.RoundData(elt.{0}))",
+"@ -f $property
+
+}
+
+''
+
+foreach ($property in $properties)
+{
+
+@"
+{{ dataField: {0,-21} caption: {0,-21} }},
+"@ -f "`"$property`",", $property
+
+}
+
