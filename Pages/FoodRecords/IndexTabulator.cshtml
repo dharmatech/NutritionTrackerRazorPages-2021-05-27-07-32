@@ -1,0 +1,202 @@
+﻿@page
+@model NutritionTrackerRazorPages.Pages.FoodRecords.IndexTabulatorModel
+@{
+}
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<link href="https://unpkg.com/tabulator-tables@4.9.3/dist/css/tabulator.min.css" rel="stylesheet">
+
+@*<link href="https://unpkg.com/tabulator-tables@4.9.3/dist/css/bootstrap/tabulator_bootstrap4.min.css" rel="stylesheet">*@
+
+<script type="text/javascript" src="https://unpkg.com/tabulator-tables@4.9.3/dist/js/tabulator.min.js"></script>
+
+@*<h1>Index</h1>*@
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+
+<div style="height: 70vh">
+    <div id="data-table"></div>
+</div>
+
+
+<script>
+
+    //var table_data = [
+
+    //    { id: 1, name: "Oli Bob", age: "12", col: "red", dob: "" },
+    //    { id: 2, name: "Mary May", age: "1", col: "blue", dob: "14/05/1982" },
+    //    { id: 3, name: "Christine Lobowski", age: "42", col: "green", dob: "22/05/1982" },
+    //    { id: 4, name: "Brendon Philips", age: "125", col: "orange", dob: "01/08/1980" },
+    //    { id: 5, name: "Margret Marmajuke", age: "16", col: "yellow", dob: "31/01/1999" }
+        
+    //];
+
+    var table_data = [
+
+        @foreach (var elt in Model.FoodRecord)
+        {
+            <text>
+                { 
+                    id: @(elt.Id), 
+                    date: "@(elt.Date.ToShortDateString())",
+                    time: "@(elt.Time.ToShortTimeString())",
+                    food: "@(elt.Food.Name)",
+                    amount: "@(Utils.Misc.RoundData(elt.Amount))",
+                    
+                    Calories          : "@(Utils.Misc.RoundData(elt.Calories))",
+                    Fat               : "@(Utils.Misc.RoundData(elt.Fat))",
+                    MonounsaturatedFat: "@(Utils.Misc.RoundData(elt.MonounsaturatedFat))",
+                    PolyunsaturatedFat: "@(Utils.Misc.RoundData(elt.PolyunsaturatedFat))",
+                    Omega3            : "@(Utils.Misc.RoundData(elt.Omega3))",
+                    Omega6            : "@(Utils.Misc.RoundData(elt.Omega6))",
+                    SaturatedFat      : "@(Utils.Misc.RoundData(elt.SaturatedFat))",
+                    TransFat          : "@(Utils.Misc.RoundData(elt.TransFat))",
+                    Cholesterol       : "@(Utils.Misc.RoundData(elt.Cholesterol))",
+                    Carbohydrates     : "@(Utils.Misc.RoundData(elt.Carbohydrates))",
+                    Fiber             : "@(Utils.Misc.RoundData(elt.Fiber))",
+                    SolubleFiber      : "@(Utils.Misc.RoundData(elt.SolubleFiber))",
+                    InsolubleFiber    : "@(Utils.Misc.RoundData(elt.InsolubleFiber))",
+                    Starch            : "@(Utils.Misc.RoundData(elt.Starch))",
+                    Sugars            : "@(Utils.Misc.RoundData(elt.Sugars))",
+                    AddedSugars       : "@(Utils.Misc.RoundData(elt.AddedSugars))",
+                    Protein           : "@(Utils.Misc.RoundData(elt.Protein))",
+                    VitaminB1         : "@(Utils.Misc.RoundData(elt.VitaminB1))",
+                    VitaminB2         : "@(Utils.Misc.RoundData(elt.VitaminB2))",
+                    VitaminB3         : "@(Utils.Misc.RoundData(elt.VitaminB3))",
+                    VitaminB5         : "@(Utils.Misc.RoundData(elt.VitaminB5))",
+                    VitaminB6         : "@(Utils.Misc.RoundData(elt.VitaminB6))",
+                    VitaminB12        : "@(Utils.Misc.RoundData(elt.VitaminB12))",
+                    Folate            : "@(Utils.Misc.RoundData(elt.Folate))",
+                    VitaminA          : "@(Utils.Misc.RoundData(elt.VitaminA))",
+                    VitaminC          : "@(Utils.Misc.RoundData(elt.VitaminC))",
+                    VitaminD          : "@(Utils.Misc.RoundData(elt.VitaminD))",
+                    VitaminE          : "@(Utils.Misc.RoundData(elt.VitaminE))",
+                    VitaminK          : "@(Utils.Misc.RoundData(elt.VitaminK))",
+                    Calcium           : "@(Utils.Misc.RoundData(elt.Calcium))",
+                    Copper            : "@(Utils.Misc.RoundData(elt.Copper))",
+                    Iron              : "@(Utils.Misc.RoundData(elt.Iron))",
+                    Magnesium         : "@(Utils.Misc.RoundData(elt.Magnesium))",
+                    Manganese         : "@(Utils.Misc.RoundData(elt.Manganese))",
+                    Phosphorus        : "@(Utils.Misc.RoundData(elt.Phosphorus))",
+                    Potassium         : "@(Utils.Misc.RoundData(elt.Potassium))",
+                    Selenium          : "@(Utils.Misc.RoundData(elt.Selenium))",
+                    Sodium            : "@(Utils.Misc.RoundData(elt.Sodium))",
+                    Zinc              : "@(Utils.Misc.RoundData(elt.Zinc))",
+                },
+            </text>
+        }
+    ];
+
+    var table = new Tabulator("#data-table", {
+
+        //height: 500,
+        //height: "auto",
+        height: "100%",
+
+        //maxHeight:"100%",
+
+        data: table_data,
+        //layout: "fitColumns",
+
+        //headerHozAlign:"center",
+
+        groupBy: ["date", "time"],
+
+        //responsiveLayout: "hide",
+
+        //columnCalcs: "group",
+        //columnCalcs: "both",
+
+        groupHeader: function (value, count, data, group) {
+            return value;
+        },
+
+        groupToggleElement: "header",
+
+        columns: [
+            //{ title: "Date", field: "date" },
+            //{ title: "Time", field: "time" },
+            //{ title: "Food", field: "food" },
+            { title: "Food", field: "food", frozen:true },
+            { title: "Amt", field: "amount" },
+
+            //{ title: "Cals", field: "calories" },
+
+            { title: "Cals",           field: "Calories" },
+
+            {
+                title: "Lipids",
+                columns: [
+                    { title: "Fat", field: "Fat", bottomCalc: "sum" },
+                    //{ title: "Fat", field: "Fat" },
+                    { title: "Mono", field: "MonounsaturatedFat" },
+                    { title: "Poly", field: "PolyunsaturatedFat" },
+                    { title: "Om3", field: "Omega3" },
+                    { title: "Om6", field: "Omega6" },
+                    { title: "Sat", field: "SaturatedFat" },
+                    { title: "Trans", field: "TransFat" },
+                    { title: "Chol", field: "Cholesterol" },
+                ]
+            },
+
+            {
+                title: "Carbohydrates",
+                columns: [
+                    { title: "Carbs", field: "Carbohydrates" },
+                    { title: "Fiber", field: "Fiber" },
+                    { title: "Sol", field: "SolubleFiber" },
+                    { title: "Ins", field: "InsolubleFiber" },
+                    { title: "Starch", field: "Starch" },
+                    { title: "Sug", field: "Sugars" },
+                    { title: "Add", field: "AddedSugars" },
+                ]
+            },
+
+            { title: "Pro", field: "Protein" },
+
+            {
+                title: "Vitamins",
+                columns: [
+                    { title: "B1", field: "VitaminB1" },
+                    { title: "B2", field: "VitaminB2" },
+                    { title: "B3", field: "VitaminB3" },
+                    { title: "B5", field: "VitaminB5" },
+                    { title: "B6", field: "VitaminB6" },
+                    { title: "B12", field: "VitaminB12" },
+                    { title: "Fol", field: "Folate" },
+                    { title: "A", field: "VitaminA" },
+                    { title: "C", field: "VitaminC" },
+                    { title: "D", field: "VitaminD" },
+                    { title: "E", field: "VitaminE" },
+                    { title: "K", field: "VitaminK" },
+                ]
+            },
+
+            {
+                title: "Minerals",
+                columns: [
+                    { title: "Calc", field: "Calcium" },
+                    { title: "Cop", field: "Copper" },
+                    { title: "Iron", field: "Iron" },
+                    { title: "Mag", field: "Magnesium" },
+                    { title: "Mang", field: "Manganese" },
+                    { title: "Phos", field: "Phosphorus" },
+                    { title: "Pot", field: "Potassium" },
+                    { title: "Sel", field: "Selenium" },
+                    { title: "Sod", field: "Sodium" },
+                    { title: "Zin", field: "Zinc" }
+                ]
+            }
+        ],
+
+        //rowClick: function (e, row) {
+        //    alert("Row " + row.getData().id + " Clicked!!!!");
+        //},
+    });
+
+</script>

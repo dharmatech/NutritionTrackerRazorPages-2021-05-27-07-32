@@ -7,6 +7,6 @@ namespace NutritionTrackerRazorPages.Utils
 {
     public static class Misc
     {
-        public static decimal RoundData(decimal n) => n >= 10 ? Math.Round(n) : Math.Round(n, 2);
+        public static decimal RoundData(decimal n) => n == 0 ? 0 : n >= 10 ? Math.Round(n) : Math.Round(n, 2);
     }
 }
