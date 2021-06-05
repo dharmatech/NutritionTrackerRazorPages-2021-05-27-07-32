@@ -208,3 +208,28 @@ foreach ($property in $properties)
 
 }
 
+''
+
+foreach ($property in $properties)
+{
+
+@"
+{{ column: {0,-21} summaryType: "sum", alignByColumn: true, displayFormat: "{{0}}", valueFormat: "fixedPoint" }},
+"@ -f "`"$property`","
+
+}
+
+''
+
+foreach ($property in $properties)
+{
+@"
+`$("#dataGrid").dxDataGrid("columnOption", {0,-21} "visible", true)
+"@ -f "`"$property`","
+}
+
+''
+
+
+
+
