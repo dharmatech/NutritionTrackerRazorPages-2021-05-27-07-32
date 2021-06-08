@@ -230,6 +230,17 @@ foreach ($property in $properties)
 
 ''
 
+# ----------------------------------------------------------------------
 
+'IndexGridBlazor.cshtml.cs'
 
+foreach ($property in $properties)
+{
 
+@"
+col.Add(foodRecord => foodRecord.{0});
+"@ -f $property
+
+}
+
+''

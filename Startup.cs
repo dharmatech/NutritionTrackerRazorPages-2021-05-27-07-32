@@ -10,6 +10,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.EntityFrameworkCore;
 using NutritionTrackerRazorPages.Data;
+using GridMvc;
 
 namespace NutritionTrackerRazorPages
 {
@@ -29,6 +30,8 @@ namespace NutritionTrackerRazorPages
 
             services.AddDbContext<NutritionTrackerContext>(options =>
                     options.UseSqlite(Configuration.GetConnectionString("NutritionTrackerContext")));
+
+            services.AddGridMvc();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
