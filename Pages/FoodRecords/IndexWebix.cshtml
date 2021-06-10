@@ -1,0 +1,287 @@
+﻿@page
+
+@model NutritionTrackerRazorPages.Pages.FoodRecords.IndexWebixModel
+
+@{
+    ViewData["Title"] = "Home page";
+}
+
+@section scripts {
+
+    <link rel="stylesheet" href="//cdn.webix.com/edge/webix.css" type="text/css">
+
+    <script src="//cdn.webix.com/edge/webix.js" type="text/javascript"></script>
+
+    <script type="text/javascript" charset="utf-8">
+
+
+        function group_by_date_time() {
+
+            $$("grida").group({
+                by: function (obj) { return obj.Date + "-" + obj.Time },
+                map: {
+                    value: ["Time"],
+                    Date: ["Date"],
+                    //samples: ["samples", "sum"]
+                }
+            });
+
+            $$("grida").group({
+                by: "Date",
+                map: {
+                    value: ["Date"],
+                    Time: ["Time"],
+                    //samples: ["samples", "sum"]
+                }
+            }, 0);
+
+        }
+
+
+        function group_by_tag_unit() {
+
+            $$("grida").group({
+                by: function (obj) { return obj.unitName + "-" + obj.tagName },
+                map: {
+                    value: ["unitName"],
+                    tagName: ["tagName"],
+                    samples: ["samples", "sum"]
+                }
+            });
+
+            $$("grida").group({
+                by: "tagName",
+                map: {
+                    value: ["tagName"],
+                    unitName: ["unitName"],
+                    samples: ["samples", "sum"]
+                }
+            }, 0);
+
+        }
+
+        function group_by_unit_tag() {
+
+            $$("grida").group({
+                by: function (obj) { return obj.unitName + "-" + obj.tagName },
+                map: {
+                    value: ["tagName"],
+                    unitName: ["unitName"],
+                    samples: ["samples", "sum"]
+                }
+            });
+
+            $$("grida").group({
+                by: "unitName",
+                map: {
+                    value: ["unitName"],
+                    tagName: ["tagName"],
+                    samples: ["samples", "sum"]
+                }
+            }, 0);
+
+        }
+
+
+
+        function ungroup() {
+            $$("grida").ungroup();
+        }
+
+        let data = [
+
+            @foreach (var elt in Model.FoodRecord)
+            {
+                <text>
+                    {
+                        Id                : "@elt.Id",
+                        Date              : "@elt.Date.ToShortDateString()",
+                        Time              : "@elt.Time.ToShortTimeString()",
+                        Food              : "@elt.Food.Name",
+                        Amount            : "@Utils.Misc.RoundData(elt.Amount)",
+
+                        Calories          : "@(Utils.Misc.RoundData(elt.Calories))",
+                        Fat               : "@(Utils.Misc.RoundData(elt.Fat))",
+                        MonounsaturatedFat: "@(Utils.Misc.RoundData(elt.MonounsaturatedFat))",
+                        PolyunsaturatedFat: "@(Utils.Misc.RoundData(elt.PolyunsaturatedFat))",
+                        Omega3            : "@(Utils.Misc.RoundData(elt.Omega3))",
+                        Omega6            : "@(Utils.Misc.RoundData(elt.Omega6))",
+                        SaturatedFat      : "@(Utils.Misc.RoundData(elt.SaturatedFat))",
+                        TransFat          : "@(Utils.Misc.RoundData(elt.TransFat))",
+                        Cholesterol       : "@(Utils.Misc.RoundData(elt.Cholesterol))",
+                        Carbohydrates     : "@(Utils.Misc.RoundData(elt.Carbohydrates))",
+                        Fiber             : "@(Utils.Misc.RoundData(elt.Fiber))",
+                        SolubleFiber      : "@(Utils.Misc.RoundData(elt.SolubleFiber))",
+                        InsolubleFiber    : "@(Utils.Misc.RoundData(elt.InsolubleFiber))",
+                        Starch            : "@(Utils.Misc.RoundData(elt.Starch))",
+                        Sugars            : "@(Utils.Misc.RoundData(elt.Sugars))",
+                        AddedSugars       : "@(Utils.Misc.RoundData(elt.AddedSugars))",
+                        Protein           : "@(Utils.Misc.RoundData(elt.Protein))",
+                        VitaminB1         : "@(Utils.Misc.RoundData(elt.VitaminB1))",
+                        VitaminB2         : "@(Utils.Misc.RoundData(elt.VitaminB2))",
+                        VitaminB3         : "@(Utils.Misc.RoundData(elt.VitaminB3))",
+                        VitaminB5         : "@(Utils.Misc.RoundData(elt.VitaminB5))",
+                        VitaminB6         : "@(Utils.Misc.RoundData(elt.VitaminB6))",
+                        VitaminB12        : "@(Utils.Misc.RoundData(elt.VitaminB12))",
+                        Folate            : "@(Utils.Misc.RoundData(elt.Folate))",
+                        VitaminA          : "@(Utils.Misc.RoundData(elt.VitaminA))",
+                        VitaminC          : "@(Utils.Misc.RoundData(elt.VitaminC))",
+                        VitaminD          : "@(Utils.Misc.RoundData(elt.VitaminD))",
+                        VitaminE          : "@(Utils.Misc.RoundData(elt.VitaminE))",
+                        VitaminK          : "@(Utils.Misc.RoundData(elt.VitaminK))",
+                        Calcium           : "@(Utils.Misc.RoundData(elt.Calcium))",
+                        Copper            : "@(Utils.Misc.RoundData(elt.Copper))",
+                        Iron              : "@(Utils.Misc.RoundData(elt.Iron))",
+                        Magnesium         : "@(Utils.Misc.RoundData(elt.Magnesium))",
+                        Manganese         : "@(Utils.Misc.RoundData(elt.Manganese))",
+                        Phosphorus        : "@(Utils.Misc.RoundData(elt.Phosphorus))",
+                        Potassium         : "@(Utils.Misc.RoundData(elt.Potassium))",
+                        Selenium          : "@(Utils.Misc.RoundData(elt.Selenium))",
+                        Sodium            : "@(Utils.Misc.RoundData(elt.Sodium))",
+                        Zinc              : "@(Utils.Misc.RoundData(elt.Zinc))",
+                    },
+                </text>
+            }
+
+            //{ item: "Item A", tagName: "Tag 1", unitName: "Unit 1", samples: 10 },
+            //{ item: "Item B", tagName: "Tag 1", unitName: "Unit 1", samples: 10 },
+            //{ item: "Item C", tagName: "Tag 1", unitName: "Unit 2", samples: 20 },
+            //{ item: "Item D", tagName: "Tag 1", unitName: "Unit 2", samples: 20 },
+            //{ item: "Item E", tagName: "Tag 2", unitName: "Unit 1", samples: 30 },
+            //{ item: "Item F", tagName: "Tag 2", unitName: "Unit 1", samples: 30 },
+            //{ item: "Item J", tagName: "Tag 2", unitName: "Unit 2", samples: 40 },
+            //{ item: "Item I", tagName: "Tag 2", unitName: "Unit 2", samples: 40 }
+        ];
+
+        webix.ready(function () {
+
+            webix.ui({
+                rows: [
+
+                    //{ template: "<br><b>To group data several times, you must specify the branch ID as the second parameter.</b>", height: 50 },
+
+                    {
+                        cols: [
+
+                            { view: "button", width: 200, value: "Group by Date Time", click: function () { group_by_date_time(); } },
+                            { view: "button", width: 200, value: "Group by Tag Unit",  click: function () { group_by_tag_unit(); } },
+                            { view: "button", width: 200, value: "Group by Unit Tag",  click: function () { group_by_unit_tag(); } },
+                            { view: "button", width: 100, value: "Ungroup",            click: function () { ungroup(); } },
+                            { view: "button", width: 100, value: "Open all",           click: function () { $$("grida").openAll(); } },
+                            { view: "button", width: 100, value: "Close all",          click: function () { $$("grida").closeAll(); } }
+                        ]
+                    },
+
+                    {
+                        view: "treetable",
+
+                        id: "grida",
+
+                        columns: [
+
+                            //{ id: "Id", },
+
+                            //{ id: "Date" },
+
+                            {
+                                id: "Date",
+
+                                header: 'Food',
+
+
+                                width: 300,
+
+                                template: function (obj, common) {
+
+                                    if (obj.value) {
+                                        return common.treetable(obj, common) + obj.value + `<button onclick=' ( function() { console.log( "${obj.value}" ); } )(); '>Add</button>`;
+                                    }
+                                    else {
+                                        return common.treetable(obj, common) + obj.Food;
+                                    }
+                                }
+
+                            },
+
+                            // { id: "Time" },
+
+                            // { id: "Food" },
+
+                            { id: "Amount", header: 'Amt', width: 50 },
+
+                            { id: "Calories",           header: "Cal",           width: 50 },
+                            { id: "Fat",                header: "Fat",                width: 50 },
+                            { id: "MonounsaturatedFat", header: "Mono", width: 50 },
+                            { id: "PolyunsaturatedFat", header: "Poly", width: 50 },
+                            { id: "Omega3",             header: "Om3",             width: 50 },
+                            { id: "Omega6",             header: "Om6",             width: 50 },
+                            { id: "SaturatedFat",       header: "Sat",       width: 50 },
+                            { id: "TransFat",           header: "Trans",           width: 50 },
+                            { id: "Cholesterol",        header: "Chole",        width: 50 },
+                            { id: "Carbohydrates",      header: "Carb",      width: 50 },
+                            { id: "Fiber",              header: "Fib",              width: 50 },
+                            { id: "SolubleFiber",       header: "Sol",       width: 50 },
+                            { id: "InsolubleFiber",     header: "Ins",     width: 50 },
+                            { id: "Starch",             header: "Star",             width: 50 },
+                            { id: "Sugars",             header: "Sug",             width: 50 },
+                            { id: "AddedSugars",        header: "Add",        width: 50 },
+                            { id: "Protein",            header: "Pro",            width: 50 },
+                            { id: "VitaminB1",          header: "B1",          width: 50 },
+                            { id: "VitaminB2",          header: "B2",          width: 50 },
+                            { id: "VitaminB3",          header: "B3",          width: 50 },
+                            { id: "VitaminB5",          header: "B5",          width: 50 },
+                            { id: "VitaminB6",          header: "B6",          width: 50 },
+                            { id: "VitaminB12",         header: "B12",         width: 50 },
+                            { id: "Folate",             header: "Fol",             width: 50 },
+                            { id: "VitaminA",           header: "A",           width: 50 },
+                            { id: "VitaminC",           header: "C",           width: 50 },
+                            { id: "VitaminD",           header: "D",           width: 50 },
+                            { id: "VitaminE",           header: "E",           width: 50 },
+                            { id: "VitaminK",           header: "K",           width: 50 },
+                            { id: "Calcium",            header: "Cal",            width: 50 },
+                            { id: "Copper",             header: "Cop",             width: 50 },
+                            { id: "Iron",               header: "Iron",               width: 50 },
+                            { id: "Magnesium",          header: "Mag",          width: 50 },
+                            { id: "Manganese",          header: "Mang",          width: 50 },
+                            { id: "Phosphorus",         header: "Pho",         width: 50 },
+                            { id: "Potassium",          header: "Pot",          width: 50 },
+                            { id: "Selenium",           header: "Sel",           width: 50 },
+                            { id: "Sodium",             header: "Sod",             width: 50 },
+                            { id: "Zinc",               header: "Zinc",               width: 50 },
+
+                            //{
+                            //    id: "tagName",
+
+                            //    header: `<button onclick='(function (){ console.log("abc");})();'>xyz</button>`,
+
+                            //    fillspace: true,
+
+                            //    template: function (obj, common) {
+
+                            //        if (obj.value) {
+                            //            return common.treetable(obj, common) + obj.value + `<button onclick=' ( function() { console.log( "${obj.value}" ); } )(); '>Add</button>`;
+                            //        }
+                            //        else {
+                            //            return common.treetable(obj, common) + obj.item;
+                            //        }
+                            //    }
+                            //},
+
+                            //{ id: "unitName", header: 'unitName' },
+
+                            //{ id: "tagName", header: 'tagName' },
+
+                            //{ id: "samples", header: `<button onclick='(function (){ console.log(10);})();'>cde</button>`, }
+                        ],
+                        //scrollX: false,
+                        scrollX: true,
+                        //scroll: 'xy',
+                        data: data
+                    }
+                ]
+            });
+        });
+
+    </script>
+
+}

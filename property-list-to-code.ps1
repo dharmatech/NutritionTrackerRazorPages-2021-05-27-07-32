@@ -244,3 +244,44 @@ col.Add(foodRecord => foodRecord.{0});
 }
 
 ''
+
+# ----------------------------------------------------------------------
+
+'IndexWebix.cshtml'
+
+foreach ($property in $properties)
+{
+
+@"
+{{ id: "{0}" }},
+"@ -f $property
+
+}
+
+''
+
+
+foreach ($property in $properties)
+{
+
+@"
+{{ id: "{0}", header: '{0}', width: 50 }},
+"@ -f $property
+
+}
+
+''
+
+foreach ($property in $properties)
+{
+
+@"
+{{ id: {0,-21} header: {0,-21} width: 50 }},
+"@ -f "`"$property`","
+
+}
+
+''
+
+
+# 
