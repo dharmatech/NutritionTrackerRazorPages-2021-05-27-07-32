@@ -6,6 +6,8 @@
     ViewData["Title"] = "Home page";
 }
 
+<div style="width: 800px; height: 400px;" id="abc"></div>
+
 @section scripts {
 
     <link rel="stylesheet" href="//cdn.webix.com/edge/webix.css" type="text/css">
@@ -156,6 +158,13 @@
         webix.ready(function () {
 
             webix.ui({
+
+                container: "abc",
+
+                //container: "container",
+
+                //responsive: true,
+
                 rows: [
 
                     //{ template: "<br><b>To group data several times, you must specify the branch ID as the second parameter.</b>", height: 50 },
@@ -164,8 +173,8 @@
                         cols: [
 
                             { view: "button", width: 200, value: "Group by Date Time", click: function () { group_by_date_time(); } },
-                            { view: "button", width: 200, value: "Group by Tag Unit",  click: function () { group_by_tag_unit(); } },
-                            { view: "button", width: 200, value: "Group by Unit Tag",  click: function () { group_by_unit_tag(); } },
+                            //{ view: "button", width: 200, value: "Group by Tag Unit",  click: function () { group_by_tag_unit(); } },
+                            //{ view: "button", width: 200, value: "Group by Unit Tag",  click: function () { group_by_unit_tag(); } },
                             { view: "button", width: 100, value: "Ungroup",            click: function () { ungroup(); } },
                             { view: "button", width: 100, value: "Open all",           click: function () { $$("grida").openAll(); } },
                             { view: "button", width: 100, value: "Close all",          click: function () { $$("grida").closeAll(); } }
@@ -174,8 +183,11 @@
 
                     {
                         view: "treetable",
-
+                        //responsive: true,
                         id: "grida",
+
+                        autowidth: true,
+                        autoheight: true,
 
                         columns: [
 
@@ -194,7 +206,7 @@
                                 template: function (obj, common) {
 
                                     if (obj.value) {
-                                        return common.treetable(obj, common) + obj.value + `<button onclick=' ( function() { console.log( "${obj.value}" ); } )(); '>Add</button>`;
+                                        return common.treetable(obj, common) + obj.value + `<button onclick=' ( function() { console.log( "${obj.value} - ${obj.Date} - ${obj.Time}" ); } )(); '>Add</button>`;
                                     }
                                     else {
                                         return common.treetable(obj, common) + obj.Food;
@@ -285,3 +297,4 @@
     </script>
 
 }
+
